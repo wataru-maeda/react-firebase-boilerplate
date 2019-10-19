@@ -1,0 +1,82 @@
+
+@font-face {
+	font-family: 'Aleo-Regular';
+	src: url(../theme/fonts/Aleo-Regular.otf);
+}
+
+@font-face {
+	font-family: 'Aleo-Bold';
+	src: url(../theme/fonts/Aleo-Bold.otf);
+}
+
+:root {
+  --purple: #7467d1;
+  --shockingPurple: #8200ff;
+  --lightPurple: #9388db;
+  --lightPurpleAlpha: rgba(147, 134, 219, .5);
+  --lightGrayPurple: #f7f7fb;
+  --blackPurple: #231d54;
+  --warningRed: #fecec6;
+  --pink: #ff3d69;
+  --shockingPink: #FF3C68;
+  --rosePink: #f40071;
+  --warmPink: #ff3c68;
+  --gray: #707070;
+  --lightGray: #cacaca;
+  --lightLightGray: #e3e7ea;
+  --pink_to_purple: linear-gradient(to right, rgba(255, 18, 102, .8), rgba(121, 101, 216, .8));
+  --purple_to_purple: linear-gradient(to right, #9388db, #8200ff);
+  --pink_to_yellow: linear-gradient(to right, #ff3c68, #ffb600);
+  --focus_background: rgba(147, 134, 219, .1);
+}
+
+body {
+  font-family: 'Aleo-Regular';
+  color: var(--blackPurple);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1, h2, h3, h4, b {
+  font-family: 'Aleo-Bold';
+  color: var(--blackPurple);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--purple) !important;
+  text-decoration: underline !important;
+}
+
+a:hover {
+  color: var(--shockingPurple) !important;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: var(--lightPurpleAlpha);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px var(--lightPurpleAlpha);
+  outline: 0 none;
+}
+
+input::-webkit-input-placeholder {
+  text-overflow: "ellipsis !important";
+  color: var(--lightGray);
+  font-size: 14px;
+}

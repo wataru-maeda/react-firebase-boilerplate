@@ -1,0 +1,18 @@
+.modal {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* body.modal-open {
+  overflow: hidden;
+  position: fixed;
+} */
+
+body.viewport-lg {
+  position: absolute;
+}
+
+.modal-content {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4) !important;
+  border-radius: 2px !important
+}
