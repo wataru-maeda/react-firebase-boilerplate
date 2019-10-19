@@ -14,7 +14,7 @@ const styles = styler({
     top: 0,
     left: 0,
     right: 0,
-    background: colors.warningRed,
+    background: colors.warmRed,
     padding: 20,
     display: 'flex',
     flex: 1,

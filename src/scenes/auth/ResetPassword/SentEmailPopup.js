@@ -15,12 +15,13 @@ const styles = styler({
   },
   img: {
     fontSize: 80,
-    color: colors.purple,
+    color: colors.yellow,
   },
   title: {
     fontSize: 24,
     marginTop: 30,
     textAlign: 'center',
+    color: colors.yellow,
   },
   desc: {
     whiteSpace: 'pre-line',
@@ -62,7 +63,7 @@ const SentEmailPopup = ({
         </p>
         <Button
           label="OK"
-          className={`btn-purple-gradation ${styles.btn}`}
+          className={`btn-yellow-gradation ${styles.btn}`}
           onClick={onClick}
         />
       </div>

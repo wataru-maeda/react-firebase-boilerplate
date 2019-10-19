@@ -1,22 +1,20 @@
 
 const colors = {
+  orange: '#e98562',
+  yellow: '#efc568',
+  blue: '#3b84f1',
   purple: '#7467d1',
-  shockingPurple: '#8200ff',
   lightPurple: '#9388db',
   lightGrayPurple: '#f7f7fb',
   lightPurpleAlpha: 'rgba(147, 134, 219, .5)',
   blackPurple: '#231d54',
-  warningRed: '#fecec6',
-  pink: '#ff3d69',
-  shockingPink: '#FF3C68',
-  rosePink: '#f40071',
-  warmPink: '#ff3c68',
+  warmRed: '#fecec6',
   gray: '#707070',
-  lightGray: '#cacaca',
+  darkGray: '#2e3a4d',
+  lightGray: '#edeff1',
   lightLightGray: '#e3e7ea',
-  pink_to_purple: 'linear-gradient(to right, rgba(255, 18, 102, .8), rgba(121, 101, 216, .8))',
-  purple_to_purple: 'linear-gradient(to right, #9388db, #8200ff)',
-  pink_to_yellow: 'linear-gradient(to right, #ff3c68, #ffb600)',
+  yellow_to_orange: 'linear-gradient(to right, rgba(242, 196, 50, .8), rgba(233, 133, 98, .8))',
+  yellow_to_yellow: 'linear-gradient(to right, #efc568, #f2ae74)',
 }
 
 export default colors

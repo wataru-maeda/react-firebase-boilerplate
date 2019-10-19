@@ -12,7 +12,7 @@ const styles = styler({
   },
   label: {
     fontSize: 14,
-    color: colors.purple,
+    color: colors.gray,
     marginBottom: 5,
   },
   button: {

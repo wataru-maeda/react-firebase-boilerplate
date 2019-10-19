@@ -51,7 +51,7 @@ const styles = styler({
     right: 0,
     bottom: 0,
     left: 0,
-    background: colors.pink_to_purple,
+    background: colors.yellow_to_orange,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -87,7 +87,7 @@ const auth = () => (
       <div className={styles.cover}>
         <div className={styles.coverContainer}>
           <img src={images.logo} className={styles.logo}/>
-          <p className={styles.title}>React Boilerplate</p>
+          <p className={styles.title}>React + Firebase Boilerplate</p>
           <p className={styles.subTitle}>Redux, navigation pre-setup template</p>
         </div>
       </div>

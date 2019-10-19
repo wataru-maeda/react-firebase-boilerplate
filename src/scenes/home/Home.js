@@ -11,7 +11,7 @@ const styles = styler({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    background: colors.blackPurple,
+    background: colors.darkGray,
     padding: 50,
   },
   title: {
@@ -56,7 +56,7 @@ class Home extends Component {
     return (
       <div className={styles.root}>
         <img src={images.logo} className={styles.logo} alt="logo" />
-        <h1 className={styles.title}>React Boilerplate</h1>
+        <h1 className={styles.title}>React + Firebase Boilerplate</h1>
         <aside className={styles.description}>
           Redux, navigation pre-setup template.{'\n'}Check
           {'\n'}<a target="_blank" rel="noopener noreferrer" href="https://github.com/WataruMaeda/react-boilerplate/blob/master/README.md">README</a> {'\n'}
@@ -65,12 +65,12 @@ class Home extends Component {
         <div className={styles.buttons}>
           <Button
             label="Download for free"
-            className={`btn-purple-gradation ${styles.download}`}
+            className={`btn-yellow-gradation ${styles.download}`}
             onClick={() => window.location.href = 'https://github.com/WataruMaeda/react-boilerplate'}
           />
           <Button
             label="Logout"
-            className={`btn-purple-outline ${styles.logout}`}
+            className={`btn-orange-outline ${styles.logout}`}
             onClick={() => actions.logout()}
           />
         </div>
