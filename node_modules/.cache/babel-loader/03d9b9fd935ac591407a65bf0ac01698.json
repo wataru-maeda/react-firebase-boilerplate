@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from 'react';\n/**\n * TabContext\n * {\n *  activeTabId: PropTypes.any\n * }\n */\n\nexport var TabContext = React.createContext({});","map":null,"metadata":{},"sourceType":"module"}
