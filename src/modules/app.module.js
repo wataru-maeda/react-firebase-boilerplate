@@ -31,12 +31,12 @@ export const authenticate = () => dispatch => {
 const signup = (email, password) => dispatch => new Promise(async (resolve, reject) => {
   try {
     // TODO: signup
-    dispatch({
-      type: LOGGED_IN,
-      loggedIn: true,
-      checked: true,
-      me: { email },
-    })
+    // dispatch({
+    //   type: LOGGED_IN,
+    //   loggedIn: true,
+    //   checked: true,
+    //   me: { email },
+    // })
     resolve()
   } catch (err) {
     reject(err)

@@ -133,15 +133,15 @@ class Login extends Component {
           </div>
           <div className={styles.footer}>
             <Button
-              label="Login"
-              className={`btn-yellow-gradation ${styles.btn}`}
-              onClick={this.onLogin}
-              isLoading={isLoading}
-            />
-            <Button
               label="Signup"
               className={`btn-orange-outline ${styles.btn}`}
               onClick={() => history.push(path.signup)}
+              isLoading={isLoading}
+            />
+            <Button
+              label="Login"
+              className={`btn-yellow-gradation ${styles.btn}`}
+              onClick={this.onLogin}
               isLoading={isLoading}
             />
           </div>

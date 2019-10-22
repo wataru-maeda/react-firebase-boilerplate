@@ -9,6 +9,7 @@ import {
   faAngleDoubleDown,
   faHeart,
   faChevronRight,
+  faEnvelopeOpenText,
 } from '@fortawesome/free-solid-svg-icons'
 
 // TODO: add icons here...
@@ -18,7 +19,8 @@ export const loadFontIcons = () => library.add(
   faTag,
   faAngleDoubleDown,
   faHeart,
-  faChevronRight
+  faChevronRight,
+  faEnvelopeOpenText
 )
 
 const FontIcon = ({

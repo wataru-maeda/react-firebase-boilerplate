@@ -1,8 +1,17 @@
 import React from 'react'
+import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Home from './scenes/home'
-import Auth from './scenes/auth'
 import Connector from './utils/connector'
+
+const Auth = Loadable({
+  loader: () => import('./scenes/auth'),
+  loading: () => <div></div>
+})
+
+const Home = Loadable({
+  loader: () => import('./scenes/home'),
+  loading: () => <div></div>
+})
 
 const Router = ({ checked, loggedIn }) => {
   if (!checked) return <aside>Loading...</aside>

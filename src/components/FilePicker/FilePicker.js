@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler } from '../../styles'
+import { styler } from '../../theme'
 
 const styles = styler({
   root: {
@@ -17,6 +17,7 @@ const styles = styler({
     bottom: 0,
     left: 0,
     cursor: 'pointer',
+    background: 'orange',
   },
 })
 

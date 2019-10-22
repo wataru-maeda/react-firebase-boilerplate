@@ -5,20 +5,12 @@ import { Button } from '../../components/Button'
 import { styler, images, colors } from '../../theme'
 import { path } from '../../utils/const'
 
-const Login = Loadable({
-  loader: () => import('./Login'),
-  loading: () => <div></div>
-})
-
-const Signup = Loadable({
-  loader: () => import('./Signup'),
-  loading: () => <div></div>
-})
-
-const ResetPassword = Loadable({
-  loader: () => import('./ResetPassword'),
-  loading: () => <div></div>
-})
+// screens
+import Login from './Login'
+import Signup from './Signup'
+import Profile from './Profile'
+import ConfirmEmail from './ConfirmEmail'
+import ResetPassword from './ResetPassword'
 
 const styles = styler({
   root: {
@@ -96,6 +88,8 @@ const auth = () => (
       <Switch>
         <Route path={path.login} component={Login} />
         <Route path={path.signup} component={Signup} />
+        <Route path={path.profile} component={Profile} />
+        <Route path={path.confirmEmail} component={ConfirmEmail} />
         <Route path={path.resetPassword} component={ResetPassword} />
         <Redirect to={path.login} />
       </Switch>
