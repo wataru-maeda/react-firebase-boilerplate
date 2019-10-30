@@ -86,9 +86,12 @@ class Login extends Component {
 
     // login
     this.setState({ isLoading: true })
-    const { actions } = this.props
+    const { actions, history } = this.props
     const { email, password } = this.state
-    actions.login(email, password).then(() => {
+    actions.login(email, password).then(({ emailVerified }) => {
+      emailVerified
+        ? history.push(path.profile)
+        : history.push({ pathname: path.confirmEmail, state: { email } })
       this.setState({ isLoading: false })
     }).catch(err => {
       this.setState({ resErr: err.message, isLoading: false })
@@ -133,15 +136,15 @@ class Login extends Component {
           </div>
           <div className={styles.footer}>
             <Button
-              label="Signup"
-              className={`btn-orange-outline ${styles.btn}`}
-              onClick={() => history.push(path.signup)}
-              isLoading={isLoading}
-            />
-            <Button
               label="Login"
               className={`btn-yellow-gradation ${styles.btn}`}
               onClick={this.onLogin}
+              isLoading={isLoading}
+            />
+            <Button
+              label="Go to Signup"
+              className={`btn-orange-outline ${styles.btn}`}
+              onClick={() => history.push(path.signup)}
               isLoading={isLoading}
             />
           </div>
