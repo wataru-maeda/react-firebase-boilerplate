@@ -1,9 +1,8 @@
 import React from 'react'
-import Loadable from 'react-loadable'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { Button } from '../../components/Button'
 import { styler, images, colors } from '../../theme'
 import { path } from '../../utils/const'
+import { motion } from "framer-motion"
 
 // screens
 import Login from './Login'
@@ -72,18 +71,37 @@ const styles = styler({
   },
 })
 
+const transition = {
+  duration: 1,
+  ease: [0.43, 0.13, 0.23, 0.96]
+}
+
+const imageVariants = {
+  exit: { y: "50%", opacity: 0, transition },
+  enter: {
+    y: "0%",
+    opacity: 1,
+    transition
+  }
+}
+
+const backVariants = {
+  exit: { y: 100, opacity: 0, transition },
+  enter: { y: 0, opacity: 1, transition: { delay: 1, ...transition } }
+}
+
 const auth = () => (
   <div className={styles.root}>
-    <div className={styles.info}>
+    <motion.div className={styles.info} initial="exit" animate="enter" exit="exit">
       {/* <img src={images.bg} className={styles.bg} /> */}
       <div className={styles.cover}>
         <div className={styles.coverContainer}>
-          <img src={images.logo} className={styles.logo}/>
-          <p className={styles.title}>React + Firebase Boilerplate</p>
-          <p className={styles.subTitle}>Redux, navigation pre-setup template</p>
+          <motion.img src={images.logo} className={styles.logo} variants={imageVariants} />
+          <motion.p className={styles.title} variants={backVariants}>React + Firebase Boilerplate</motion.p>
+          <motion.p className={styles.subTitle} variants={backVariants}>Redux, navigation pre-setup template</motion.p>
         </div>
       </div>
-    </div>
+    </motion.div>
     <div className={styles.fields}>
       <Switch>
         <Route path={path.login} component={Login} />

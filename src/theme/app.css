@@ -25,8 +25,11 @@
   --yellow_to_yellow: linear-gradient(to right, #efc568, #f2ae74);
 }
 
+* {
+  font-family: 'Aleo-Regular' !important;
+}
+
 body {
-  font-family: 'Aleo-Regular';
   color: var(--darkGray);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,8 +37,8 @@ body {
 }
 
 h1, h2, h3, h4, b {
-  font-family: 'Aleo-Bold';
-  color: var(--blue);
+  font-family: 'Aleo-Bold' !important;
+  color: var(--yellow);
   padding: 0;
   margin: 0;
 }

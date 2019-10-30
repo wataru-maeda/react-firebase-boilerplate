@@ -1,5 +1,5 @@
-// import { auth, storage } from '../utils/firebase'
-// import { message } from '../utils/const'
+import { auth, storage } from '../utils/firebase'
+import { message } from '../utils/const'
 
 // ------------------------------------
 // Constants
@@ -19,25 +19,22 @@ const initialState = {
 // ------------------------------------
 
 export const authenticate = () => dispatch => {
-  // TODO: authenticate user
-  dispatch({
+  auth.onAuthStateChanged(me => dispatch({
     type: LOGGED_IN,
-    loggedIn: false,
+    loggedIn: (me && me.emailVerified && me.displayName) || false,
+    me: me || {},
     checked: true,
-    me: null,
-  })
+  }))
 }
 
-const signup = (email, password) => dispatch => new Promise(async (resolve, reject) => {
+const signup = (email, password) => () => new Promise(async (resolve, reject) => {
   try {
-    // TODO: signup
-    // dispatch({
-    //   type: LOGGED_IN,
-    //   loggedIn: true,
-    //   checked: true,
-    //   me: { email },
-    // })
-    resolve()
+    const { user } = await auth.createUserWithEmailAndPassword(email, password)
+    if (user && !user.emailVerified) {
+      await user.sendEmailVerification()
+      resolve()
+    }
+    reject(new Error(message.auth.sendEmailConfirmationErr))
   } catch (err) {
     reject(err)
   }
@@ -45,14 +42,11 @@ const signup = (email, password) => dispatch => new Promise(async (resolve, reje
 
 const login = (email, password) => dispatch => new Promise(async (resolve, reject) => {
   try {
-    // TODO: login
-    dispatch({
-      type: LOGGED_IN,
-      loggedIn: true,
-      checked: true,
-      me: { email },
-    })
-    resolve()
+    const { user } = await auth.signInWithEmailAndPassword(email, password)
+    if (!user) reject(new Error('Failed to login. please try it again later'))
+    if (!user.emailVerified) await user.sendEmailVerification()
+    dispatch(saveMe(user))
+    resolve({ emailVerified: user.emailVerified })
   } catch (err) {
     reject(err)
   }
@@ -60,13 +54,8 @@ const login = (email, password) => dispatch => new Promise(async (resolve, rejec
 
 const logout = () => dispatch => new Promise(async (resolve, reject) => {
   try {
-    // TODO: logout
-    dispatch({
-      type: LOGGED_IN,
-      loggedIn: false,
-      checked: true,
-      me: null,
-    })
+    await auth.signOut()
+    dispatch(saveMe(null))
     resolve()
   } catch (err) {
     reject(err)
@@ -75,7 +64,31 @@ const logout = () => dispatch => new Promise(async (resolve, reject) => {
 
 const resetPassword = email => () => new Promise(async (resolve, reject) => {
   try {
-    // TODO: reset password
+    await auth.sendPasswordResetEmail(email)
+    resolve()
+  } catch (err) {
+    reject(err)
+  }
+})
+
+const updateMe = (name, file) => dispatch => new Promise(async (resolve, reject) => {
+  try {
+    // get current user
+    const me = auth.currentUser
+    if (!me) return
+
+    // if the image is file, upload to firebase storage
+    let path
+    if (file && typeof file === 'object') {
+      path = `users/${me.uid}`
+      await storage.child(path).put(file)
+    } else {
+      path = 'default/profile.png'
+    }
+
+    // update me
+    await me.updateProfile({ displayName: name, photoURL: path })
+    dispatch(authenticate())
     resolve()
   } catch (err) {
     reject(err)
@@ -90,6 +103,7 @@ const saveMe = me => dispatch => dispatch({
 export const actions = {
   authenticate,
   saveMe,
+  updateMe,
   signup,
   login,
   logout,
