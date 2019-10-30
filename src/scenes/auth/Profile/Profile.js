@@ -5,8 +5,7 @@ import { styler, colors, images } from '../../../theme'
 import { Button } from '../../../components/Button'
 import FilePicker from '../../../components/FilePicker'
 import Error from '../../../components/Error'
-import { path } from '../../../utils/const'
-// import { storage } from '../../../utils/firebase'
+import { storage } from '../../../utils/firebase'
 import Connector from '../../../utils/connector'
 import { validate, tests } from '../../../utils/vali'
 
@@ -88,9 +87,9 @@ class Profile extends Component {
 
   componentWillMount() {
     // set default image
-    // storage.child('default/profile.png').getDownloadURL().then((url) => {
-    //  this.setState({ userImage: url })
-    // })
+    storage.child('default/profile.png').getDownloadURL().then((url) => {
+     this.setState({ userImage: url })
+    })
   }
 
   handleInputChange = ({ target }) => {
@@ -115,7 +114,7 @@ class Profile extends Component {
 
     // update me
     this.setState({ isLoading: true, resErr: null })
-    const { actions, history } = this.props
+    const { actions } = this.props
     const { userName, userImage } = this.state
     actions.updateMe(userName, userImage).then(() => {
       this.setState({ resErr: null, isLoading: false })
@@ -126,7 +125,7 @@ class Profile extends Component {
 
   render() {
     const { history, me } = this.props
-    // if (!me) return <Redirect to="/" />
+    if (!me) return <Redirect to="/" />
 
     const { userName, userImage, errors, resErr, isLoading } = this.state
     return (
@@ -138,16 +137,17 @@ class Profile extends Component {
           }}
         />
         <div className={styles.contents}>
-          <h3 className={styles.title}>プロフィール</h3>
+          <h3 className={styles.title}>Set Profile</h3>
           <div className={styles.row}>
             <img
               src={typeof userImage === 'object' ? URL.createObjectURL(userImage) : userImage}
               className={styles.img}
+              alt="logo"
             />
             <FilePicker
-              maxSize={300000}
+              maxSize={500000}
               onSelect={f => this.setState({ userImage: f, resErr: null })}
-              onError={() => this.setState({ resErr: 'Please select an image less than 300kb' })}
+              onError={() => this.setState({ resErr: 'Please select an image less than 500kb' })}
             >
               <p className={styles.file}>Set Profile Image</p>
             </FilePicker>
@@ -164,16 +164,16 @@ class Profile extends Component {
           />
           <div className={styles.footer}>
             <Button
-              label="Back"
-              className={`btn-orange-outline ${styles.btn}`}
-              onClick={() => history.goBack()}
-              display={isLoading}
-            />
-            <Button
               label="Create Account"
               className={`btn-yellow-gradation ${styles.btn}`}
               onClick={this.onSubmit}
               isLoading={isLoading}
+            />
+            <Button
+              label="Back"
+              className={`btn-orange-outline ${styles.btn}`}
+              onClick={() => history.goBack()}
+              display={isLoading}
             />
           </div>
         </div>

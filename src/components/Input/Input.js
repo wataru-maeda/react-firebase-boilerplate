@@ -24,7 +24,7 @@ const styles = styler({
     background: 'transparent',
   },
   input: {
-    fontSize: 20,
+    fontSize: 16,
     '&::placeholder': {
       textOverflow: "ellipsis !important",
       color: colors.lightGray,

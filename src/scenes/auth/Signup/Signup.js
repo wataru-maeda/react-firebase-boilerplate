@@ -73,7 +73,7 @@ class Signup extends Component {
     actions.signup(email, password).then(() => {
       const { history } = this.props
       this.setState({ isLoading: false })
-      history.push(path.profile)
+      history.push({ pathname: path.confirmEmail, state: { email }})
     }).catch((err) => {
       this.setState({ isLoading: false, resErr: err.message })
     })
@@ -127,15 +127,15 @@ class Signup extends Component {
           />
           <div className={styles.footer}>
             <Button
-              label="Login"
-              className={`btn-orange-outline ${styles.btn}`}
-              onClick={() => history.push('/login')}
-              isLoading={isLoading}
-            />
-            <Button
               label="Signup"
               className={`btn-yellow-gradation ${styles.btn}`}
               onClick={this.onSignup}
+              isLoading={isLoading}
+            />
+            <Button
+              label="Go to Login"
+              className={`btn-orange-outline ${styles.btn}`}
+              onClick={() => history.push('/login')}
               isLoading={isLoading}
             />
           </div>

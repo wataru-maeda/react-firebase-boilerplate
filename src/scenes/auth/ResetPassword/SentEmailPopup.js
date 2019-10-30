@@ -33,7 +33,6 @@ const styles = styler({
     padding: '10px 20px',
     fontSize: 18,
     marginTop: 50,
-    borderRadius: 10,
     width: '100%',
     borderRadius: '5px !important',
     '&::before': {
