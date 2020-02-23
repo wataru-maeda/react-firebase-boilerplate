@@ -4,7 +4,30 @@ const exceptions = [
   'fontWeight',
   'opacity',
   'zIndex',
+  'boxShadow',
 ]
+
+const min = (x) => {
+  const v = x / remSize
+  const m = 1 / remSize
+  if (x < 0) return `${v}rem`
+  return v > m ? `${v}rem` : '1px' // minimum 1px
+}
+
+const px2rem = (ps) => {
+  const p = []
+  ps.forEach((x) => {
+    if (x.includes('px')) {
+      const n = Number(x.replace('px', ''))
+      if (n) p.push(min(n))
+    } else if (Number(x)) {
+      p.push(min(Number(x)))
+    } else {
+      p.push(x)
+    }
+  })
+  return p
+}
 
 const rem = (e) => {
   const s = { ...e }
@@ -17,20 +40,18 @@ const rem = (e) => {
       if (v && typeof v === 'object') {
         s[k] = rem(v)
       } else if (v && typeof v === 'number') {
-        s[k] = `${v / remSize}rem`
+        s[k] = min(v)
+      } else if (v && v.includes('px') && v.includes('calc')) {
+        const vc = v.match(/\(([^)]+)\)/)
+        if (vc && vc.length > 0) {
+          const ps = vc[1].split(' ')
+          const p = px2rem(ps)
+          const r = p.toString().split(',').join(' ')
+          s[k] = `calc(${r})`
+        }
       } else if (v && v.includes('px')) {
-        const p = []
         const ps = v.split(' ')
-        ps.forEach((x) => {
-          if (x.includes('px')) {
-            const n = Number(x.replace('px', ''))
-            if (n) p.push(`${n / remSize}rem`)
-          } else if (Number(x)) {
-            p.push(`${Number(x) / remSize}rem`)
-          } else {
-            p.push(x)
-          }
-        })
+        const p = px2rem(ps)
         s[k] = p.toString().split(',').join(' ')
       }
     }

@@ -12,6 +12,7 @@ const config = {
   appId: 'YOUR-APP-ID',
 }
 
+
 firebase.initializeApp(config)
 
 export const auth = firebase.auth()
