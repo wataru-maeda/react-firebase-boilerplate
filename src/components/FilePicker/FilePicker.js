@@ -21,13 +21,7 @@ const styles = styler({
   },
 })
 
-const FilePicker = ({
-  accept,
-  children,
-  maxSize,
-  onSelect,
-  onError,
-}) => {
+const FilePicker = ({ accept, children, maxSize, onSelect, onError }) => {
   return (
     <div className={styles.root}>
       {children}
@@ -38,11 +32,14 @@ const FilePicker = ({
         onChange={({ target: { files } }) => {
           if (!files || (files && files.length === 0)) return
           if (!maxSize || typeof maxSize !== 'number') {
-            return onSelect(files[0])
+            onSelect(files[0])
+            return
           }
-          files[0].size < maxSize
-            ? onSelect(files[0])
-            : onError()
+          if (files[0].size < maxSize) {
+            onSelect(files[0])
+          } else {
+            onError()
+          }
         }}
       />
     </div>
@@ -51,7 +48,7 @@ const FilePicker = ({
 
 FilePicker.propTypes = {
   accept: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.node,
   maxSize: PropTypes.number,
   onSelect: PropTypes.func,
   onError: PropTypes.func,

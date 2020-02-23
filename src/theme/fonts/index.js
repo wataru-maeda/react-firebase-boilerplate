@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import aleo_bold from './Aleo-Bold.otf'
 import aleo_italic from './Aleo-Italic.otf'
 import aleo_regular from './Aleo-Regular.otf'

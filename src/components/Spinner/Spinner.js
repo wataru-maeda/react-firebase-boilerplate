@@ -31,11 +31,7 @@ const styles = styler({
   },
 })
 
-const Spinner = ({
-  title,
-  style,
-  iconStyle,
-}) => {
+const Spinner = ({ title, style, iconStyle }) => {
   return (
     <div className={styles.root} style={style}>
       <div className={styles.container}>
@@ -51,9 +47,9 @@ const Spinner = ({
 }
 
 Spinner.propTypes = {
-  title: PropTypes.any,
-  style: PropTypes.object,
-  iconStyle: PropTypes.object,
+  title: PropTypes.oneOfType([null, PropTypes.string]),
+  style: PropTypes.objectOf(PropTypes.object),
+  iconStyle: PropTypes.objectOf(PropTypes.object),
 }
 
 Spinner.defaultProps = {

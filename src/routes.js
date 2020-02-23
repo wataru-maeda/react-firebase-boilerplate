@@ -6,24 +6,24 @@ import colors from './theme/colors'
 
 const Auth = Loadable({
   loader: () => import('./scenes/auth'),
-  loading: () => <div></div>
+  loading: () => <div />,
 })
 
 const Home = Loadable({
   loader: () => import('./scenes/home'),
-  loading: () => <div></div>
+  loading: () => <div />,
 })
 
 const Router = ({ checked, loggedIn }) => {
   // update css variables
   useEffect(() => {
-    Object.keys(colors).forEach((key) => {
+    Object.keys(colors).forEach(key => {
       const cssKey = `--${key}`
       const cssVal = colors[key]
       document.body.style.setProperty(cssKey, cssVal)
     })
   }, [])
-  
+
   if (!checked) return <aside>Loading...</aside>
   return (
     <BrowserRouter>
@@ -44,14 +44,10 @@ const Router = ({ checked, loggedIn }) => {
 
 export default props => (
   <Connector>
-    {
-      ({ state: { app: { loggedIn, checked } } }) => (
-        <Router
-          checked={checked}
-          loggedIn={loggedIn}
-          {...props}
-        />
-      )
-    }
+    {({
+      state: {
+        app: { loggedIn, checked },
+      },
+    }) => <Router checked={checked} loggedIn={loggedIn} {...props} />}
   </Connector>
 )

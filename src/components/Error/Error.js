@@ -35,12 +35,15 @@ class Error extends Component {
     isPresent: false,
   }
 
-  componentWillReceiveProps(props) {
-    const { message } = props
-    if (!message
-        || (message && message.length === 0)) {
+  componentDidUpdate() {
+    this.handlePresentState()
+  }
+
+  handlePresentState = () => {
+    const { message } = this.props
+    if (!message || (message && message.length === 0)) {
       this.setState({ isPresent: false })
-      return 
+      return
     }
     this.setState({ isPresent: true })
   }
@@ -50,14 +53,15 @@ class Error extends Component {
     const { message, onClose } = this.props
     return (
       <div className={styles.root}>
-        <Fade in={isPresent} className={styles.contents}> 
+        <Fade in={isPresent} className={styles.contents}>
           {message}
-          <button className={`btn ${styles.btn}`} onClick={onClose}>
-            <FontIcon
-              icon="times-circle"
-              className={styles.img}
-            />
-          </button> 
+          <button
+            type="button"
+            className={`btn ${styles.btn}`}
+            onClick={onClose}
+          >
+            <FontIcon icon="times-circle" className={styles.img} />
+          </button>
         </Fade>
       </div>
     )

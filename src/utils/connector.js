@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Connects a component to the redux store and dispatch functions
  * Proposition: one import to take care of accessing store and actions
@@ -36,7 +37,7 @@ class Connector extends Component {
 }
 
 const mapStateToProps = state => ({ state })
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   const actionList = [
     // label: String, value: Object
     { label: 'app', value: appActions },
@@ -44,10 +45,13 @@ const mapDispatchToProps = (dispatch) => {
   ]
 
   return {
-    actions: actionList.reduce((prev, cur) => ({
-      ...prev,
-      [cur.label]: bindActionCreators(cur.value, dispatch),
-    }), {}),
+    actions: actionList.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [cur.label]: bindActionCreators(cur.value, dispatch),
+      }),
+      {},
+    ),
   }
 }
 

@@ -56,20 +56,25 @@ const styles = styler({
 
 class ConfirmEmail extends Component {
   render() {
-    const { history, location: { state: { email } } } = this.props
+    const {
+      history,
+      location: {
+        state: { email },
+      },
+    } = this.props
     if (!email) return <Redirect to={path.login} />
     return (
       <div className={styles.root}>
         <div className={styles.contents}>
-          <FontIcon
-            icon="envelope-open-text"
-            className={styles.img}
-          />
+          <FontIcon icon="envelope-open-text" className={styles.img} />
           <h2 className={styles.title}>Confirm your email</h2>
           <p className={styles.desc}>
             We have sent email to{'\t'}
-            <a href={`mailto:${email}`}>{email}</a>{'\t'}
-            to confirm the validity of your email address. After receiving the email follow the link provided to complete your registration.</p>
+            <a href={`mailto:${email}`}>{email}</a>
+            {'\t'}
+            to confirm the validity of your email address. After receiving the
+            email follow the link provided to complete your registration.
+          </p>
           <Button
             label="Back to Login"
             className={`btn-yellow-gradation ${styles.btn}`}

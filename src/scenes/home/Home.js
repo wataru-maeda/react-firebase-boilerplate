@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { styler, images, colors, fonts } from '../../theme'
-import { Button } from '../../components/Button'
-import Connector from '../../utils/connector'
-import TopNavigation from '../../subviews/TopNavigation'
+import { styler, images, colors, fonts } from 'theme'
+import { Button } from 'components/Button'
+import Connector from 'utils/connector'
+import TopNavigation from 'subviews/TopNavigation'
 
 const styles = styler({
   root: {
@@ -63,22 +63,29 @@ class Home extends Component {
       <div className={styles.root}>
         <TopNavigation />
         <div className={styles.main}>
-          <img
-            src={images.logo}
-            className={styles.logo}
-            alt="logo"
-          />
+          <img src={images.logo} className={styles.logo} alt="logo" />
           <h1 className={styles.title}>React + Firebase Boilerplate</h1>
           <aside className={styles.description}>
             Redux, navigation pre-setup template.{'\n'}Check
-            {'\n'}<a target="_blank" rel="noopener noreferrer" href="https://github.com/WataruMaeda/react-boilerplate/blob/master/README.md">README</a> {'\n'}
+            {'\n'}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/WataruMaeda/react-boilerplate/blob/master/README.md"
+            >
+              README
+            </a>{' '}
+            {'\n'}
             for more details
           </aside>
           <div className={styles.buttons}>
             <Button
               label="Download for free"
               className={`btn-yellow-gradation ${styles.download}`}
-              onClick={() => window.location.href = 'https://github.com/WataruMaeda/react-firebase-boilerplate'}
+              onClick={() => {
+                window.location.href =
+                  'https://github.com/WataruMaeda/react-firebase-boilerplate'
+              }}
             />
             <Button
               label="Logout"
@@ -94,14 +101,7 @@ class Home extends Component {
 
 const ConnectedHome = props => (
   <Connector>
-    {
-      ({ actions }) => (
-        <Home
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({ actions }) => <Home actions={actions.app} {...props} />}
   </Connector>
 )
 
