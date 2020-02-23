@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { styler, images, colors } from '../../theme'
 import { path } from '../../utils/const'
-import { motion } from "framer-motion"
 
 // screens
 import Login from './Login'
@@ -73,32 +73,45 @@ const styles = styler({
 
 const transition = {
   duration: 1,
-  ease: [0.43, 0.13, 0.23, 0.96]
+  ease: [0.43, 0.13, 0.23, 0.96],
 }
 
 const imageVariants = {
-  exit: { y: "50%", opacity: 0, transition },
+  exit: { y: '50%', opacity: 0, transition },
   enter: {
-    y: "0%",
+    y: '0%',
     opacity: 1,
-    transition
-  }
+    transition,
+  },
 }
 
 const backVariants = {
   exit: { y: 100, opacity: 0, transition },
-  enter: { y: 0, opacity: 1, transition: { delay: 1, ...transition } }
+  enter: { y: 0, opacity: 1, transition: { delay: 1, ...transition } },
 }
 
 const auth = () => (
   <div className={styles.root}>
-    <motion.div className={styles.info} initial="exit" animate="enter" exit="exit">
+    <motion.div
+      className={styles.info}
+      initial="exit"
+      animate="enter"
+      exit="exit"
+    >
       {/* <img src={images.bg} className={styles.bg} /> */}
       <div className={styles.cover}>
         <div className={styles.coverContainer}>
-          <motion.img src={images.logo} className={styles.logo} variants={imageVariants} />
-          <motion.p className={styles.title} variants={backVariants}>React + Firebase Boilerplate</motion.p>
-          <motion.p className={styles.subTitle} variants={backVariants}>Redux, navigation pre-setup template</motion.p>
+          <motion.img
+            src={images.logo}
+            className={styles.logo}
+            variants={imageVariants}
+          />
+          <motion.p className={styles.title} variants={backVariants}>
+            React + Firebase Boilerplate
+          </motion.p>
+          <motion.p className={styles.subTitle} variants={backVariants}>
+            Redux, navigation pre-setup template
+          </motion.p>
         </div>
       </div>
     </motion.div>

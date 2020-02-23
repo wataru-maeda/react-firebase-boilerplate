@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from 'reactstrap'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 import { styler, images } from 'theme'
 import './modal.css'
 
