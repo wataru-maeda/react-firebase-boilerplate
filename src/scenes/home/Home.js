@@ -67,7 +67,7 @@ class Home extends Component {
           <img src={images.logo} className={styles.logo} alt="logo" />
           <h1 className={styles.title}>React + Firebase Boilerplate</h1>
           <aside className={styles.description}>
-            Redux, navigation pre-setup template.{'\n'}Check test
+            Redux, navigation pre-setup template.{'\n'}Check
             {'\n'}
             <a
               target="_blank"
