@@ -16,7 +16,6 @@
     "react/prefer-stateless-function": "off",
     "no-async-promise-executor": "off",
     "no-return-assign": "off",
-    "react/state-in-constructor": "off",
     "import/prefer-default-export": 0
   },
   "globals": {
