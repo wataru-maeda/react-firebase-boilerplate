@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal } from 'reactstrap'
 import PropTypes from 'prop-types'
-import { styler, images } from 'theme'
+import { styler, images } from 'styles'
 import './modal.css'
 
 const styles = styler({

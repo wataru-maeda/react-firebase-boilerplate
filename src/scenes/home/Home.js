@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { styler, images, colors, fonts } from 'theme'
+import { styler, images, colors, fonts } from 'styles'
 import { Button } from 'components/Button'
 import Connector from 'utils/connector'
 import TopNavigation from 'subviews/TopNavigation'
@@ -56,6 +56,7 @@ const styles = styler({
   },
 })
 
+// eslint-disable-next-line react/prefer-stateless-function
 class Home extends Component {
   render() {
     const { actions } = this.props

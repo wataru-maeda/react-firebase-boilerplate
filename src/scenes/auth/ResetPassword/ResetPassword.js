@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
+import Input from 'components/Input'
+import Error from 'components/Error'
+import { styler, colors } from 'styles'
+import { validate, tests } from 'utils/vali'
+import { path } from 'utils/const'
+import { Button } from 'components/Button'
+import Connector from 'utils/connector'
 import SentEmailPopup from './SentEmailPopup'
-import Input from '../../../components/Input'
-import Error from '../../../components/Error'
-import { styler, colors } from '../../../theme'
-import { validate, tests } from '../../../utils/vali'
-import { path } from '../../../utils/const'
-import { Button } from '../../../components/Button';
-import Connector from '../../../utils/connector'
 
 const styles = styler({
   root: {
@@ -84,11 +84,14 @@ class ResetPassword extends Component {
     this.setState({ isLoading: true })
     const { actions } = this.props
     const { email } = this.state
-    actions.resetPassword(email).then(() => {
-      this.setState({ isLoading: false, isOpen: true })
-    }).catch(err => {
-      this.setState({ resErr: err.message, isLoading: false })
-    })
+    actions
+      .resetPassword(email)
+      .then(() => {
+        this.setState({ isLoading: false, isOpen: true })
+      })
+      .catch(err => {
+        this.setState({ resErr: err.message, isLoading: false })
+      })
   }
 
   render() {
@@ -127,7 +130,7 @@ class ResetPassword extends Component {
               onClick={() => history.push(path.login)}
               isLoading={isLoading}
             />
-          </div>  
+          </div>
         </div>
         <SentEmailPopup
           email={email}
@@ -144,21 +147,12 @@ class ResetPassword extends Component {
 
 const ConnectedResetPassword = props => (
   <Connector>
-    {
-      ({ actions }) => (
-        <ResetPassword
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({ actions }) => <ResetPassword actions={actions.app} {...props} />}
   </Connector>
 )
 
-ResetPassword.propTypes = {
-}
+ResetPassword.propTypes = {}
 
-ResetPassword.defaultProps = {
-}
+ResetPassword.defaultProps = {}
 
 export default ConnectedResetPassword

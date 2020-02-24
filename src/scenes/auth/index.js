@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { styler, images, colors } from '../../theme'
-import { path } from '../../utils/const'
+import { styler, images, colors } from 'styles'
+import { path } from 'utils/const'
 
 // screens
 import Login from './Login'

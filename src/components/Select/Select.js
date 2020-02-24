@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import Creatable from 'react-select/creatable'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'theme'
+import { styler, colors } from 'styles'
 import './select.css'
 
 const styles = styler({

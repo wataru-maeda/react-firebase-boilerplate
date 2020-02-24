@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { styler, images } from '../../theme'
-import { storage } from '../../utils/firebase'
-import Connector from '../../utils/connector'
+import { styler, images } from 'styles'
+import { storage } from 'utils/firebase'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {

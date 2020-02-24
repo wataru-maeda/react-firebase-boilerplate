@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Connector from './utils/connector'
-import colors from './theme/colors'
+import Connector from 'utils/connector'
+import { colors } from 'styles'
 
 const Auth = Loadable({
   loader: () => import('./scenes/auth'),

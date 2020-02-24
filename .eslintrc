@@ -13,7 +13,7 @@
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
     "react/jsx-props-no-spreading": "off",
-    "react/prefer-stateless-function": "off",
+    "react/state-in-constructor": "off",
     "no-async-promise-executor": "off",
     "no-return-assign": "off",
     "import/prefer-default-export": 0

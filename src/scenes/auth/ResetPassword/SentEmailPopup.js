@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from '../../../theme'
-import Modal from '../../../components/Modal'
-import FontIcon from '../../../components/FontIcon'
-import { Button } from '../../../components/Button'
+import { styler, colors } from 'styles'
+import Modal from 'components/Modal'
+import FontIcon from 'components/FontIcon'
+import { Button } from 'components/Button'
 
 const styles = styler({
   root: {
@@ -41,24 +41,18 @@ const styles = styler({
     '&:hover::before': {
       borderRadius: 5,
     },
-  }
+  },
 })
 
-const SentEmailPopup = ({
-  email,
-  isOpen,
-  onClick,
-}) => {
+const SentEmailPopup = ({ email, isOpen, onClick }) => {
   return (
     <Modal isOpen={isOpen} toggleModal={null} size="md" isCenter>
       <div className={styles.root}>
-        <FontIcon
-          icon="paper-plane"
-          className={styles.img}
-        />
+        <FontIcon icon="paper-plane" className={styles.img} />
         <h2 className={styles.title}>Password reset email sent</h2>
         <p className={styles.desc}>
-          Email sent to <a href={`mailto:${email}`}>{email}</a>. Follow the directions in the email to reset your password.
+          Email sent to <a href={`mailto:${email}`}>{email}</a>. Follow the
+          directions in the email to reset your password.
         </p>
         <Button
           label="OK"

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Input from '../../../components/Input'
-import { styler, colors } from '../../../theme'
-import { Button } from '../../../components/Button'
-import Error from '../../../components/Error'
-import { path } from '../../../utils/const'
-import { validate, tests } from '../../../utils/vali'
-import Connector from '../../../utils/connector'
+import Input from 'components/Input'
+import { styler, colors } from 'styles'
+import { Button } from 'components/Button'
+import Error from 'components/Error'
+import { path } from 'utils/const'
+import { validate, tests } from 'utils/vali'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {
@@ -70,13 +70,16 @@ class Signup extends Component {
 
     // create account
     this.setState({ isLoading: true })
-    actions.signup(email, password).then(() => {
-      const { history } = this.props
-      this.setState({ isLoading: false })
-      history.push({ pathname: path.confirmEmail, state: { email }})
-    }).catch((err) => {
-      this.setState({ isLoading: false, resErr: err.message })
-    })
+    actions
+      .signup(email, password)
+      .then(() => {
+        const { history } = this.props
+        this.setState({ isLoading: false })
+        history.push({ pathname: path.confirmEmail, state: { email } })
+      })
+      .catch(err => {
+        this.setState({ isLoading: false, resErr: err.message })
+      })
   }
 
   handleInputChange = ({ target }) => {
@@ -147,14 +150,7 @@ class Signup extends Component {
 
 const ConnectedSignup = props => (
   <Connector>
-    {
-      ({ actions }) => (
-        <Signup
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({ actions }) => <Signup actions={actions.app} {...props} />}
   </Connector>
 )
 

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Input from '../../../components/Input'
-import { styler, colors } from '../../../theme'
-import { Button } from '../../../components/Button'
-import Error from '../../../components/Error'
-import { path } from '../../../utils/const'
-import { validate, tests } from '../../../utils/vali'
-import Connector from '../../../utils/connector'
+import Input from 'components/Input'
+import { styler, colors } from 'styles'
+import { Button } from 'components/Button'
+import Error from 'components/Error'
+import { path } from 'utils/const'
+import { validate, tests } from 'utils/vali'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {

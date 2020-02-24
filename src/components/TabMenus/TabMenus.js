@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'theme'
+import { styler, colors } from 'styles'
 import Connector from 'utils/connector'
 
 const styles = styler({
@@ -33,7 +33,7 @@ class TabMenus extends Component {
     super(props)
     const { children } = this.props
     if (!children || (children && children.length === 0)) return
-    const {name} = children[0].props
+    const { name } = children[0].props
     this.state = { selectedName: name }
   }
 

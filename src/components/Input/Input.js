@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { Button } from '../Button'
-import { styler, colors } from '../../theme'
+import { Button } from 'components/Button'
+import { styler, colors } from 'styles'
 
 const styles = styler({
   container: {

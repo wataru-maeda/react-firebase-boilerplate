@@ -1,22 +1,16 @@
 const remSize = 16
-const exceptions = [
-  'flex',
-  'fontWeight',
-  'opacity',
-  'zIndex',
-  'boxShadow',
-]
+const exceptions = ['flex', 'fontWeight', 'opacity', 'zIndex', 'boxShadow']
 
-const min = (x) => {
+const min = x => {
   const v = x / remSize
   const m = 1 / remSize
   if (x < 0) return `${v}rem`
   return v > m ? `${v}rem` : '1px' // minimum 1px
 }
 
-const px2rem = (ps) => {
+const px2rem = ps => {
   const p = []
-  ps.forEach((x) => {
+  ps.forEach(x => {
     if (x.includes('px')) {
       const n = Number(x.replace('px', ''))
       if (n) p.push(min(n))
@@ -29,7 +23,7 @@ const px2rem = (ps) => {
   return p
 }
 
-const rem = (e) => {
+const rem = e => {
   const s = { ...e }
   const ks = Object.keys(e)
   const c = ks.length
@@ -46,13 +40,19 @@ const rem = (e) => {
         if (vc && vc.length > 0) {
           const ps = vc[1].split(' ')
           const p = px2rem(ps)
-          const r = p.toString().split(',').join(' ')
+          const r = p
+            .toString()
+            .split(',')
+            .join(' ')
           s[k] = `calc(${r})`
         }
       } else if (v && v.includes('px')) {
         const ps = v.split(' ')
         const p = px2rem(ps)
-        s[k] = p.toString().split(',').join(' ')
+        s[k] = p
+          .toString()
+          .split(',')
+          .join(' ')
       }
     }
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Fade } from 'reactstrap'
-import FontIcon from '../FontIcon'
-import { styler, colors } from '../../theme'
+import FontIcon from 'components/FontIcon'
+import { styler, colors } from 'styles'
 
 const styles = styler({
   root: {
@@ -35,12 +35,9 @@ class Error extends Component {
     isPresent: false,
   }
 
-  componentDidUpdate() {
-    this.handlePresentState()
-  }
-
-  handlePresentState = () => {
-    const { message } = this.props
+  // eslint-disable-next-line react/no-deprecated
+  componentWillReceiveProps(nextProps) {
+    const { message } = nextProps
     if (!message || (message && message.length === 0)) {
       this.setState({ isPresent: false })
       return
