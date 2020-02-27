@@ -26,9 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -71,9 +71,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,css}": [
+    "**/*.{js,jsx,css}": [
       "pretty-quick --staged",
-      "eslint src/ --fix",
+      "yarn lint",
+      "yarn test",
       "git add"
     ]
   }
