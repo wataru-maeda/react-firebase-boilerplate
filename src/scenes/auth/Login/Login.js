@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Input from '../../../components/Input'
-import { styler, colors } from '../../../theme'
-import { Button } from '../../../components/Button'
-import Error from '../../../components/Error'
-import { path } from '../../../utils/const'
-import { validate, tests } from '../../../utils/vali'
-import Connector from '../../../utils/connector'
+import Input from 'components/Input'
+import { styler, colors } from 'styles'
+import { Button } from 'components/Button'
+import Error from 'components/Error'
+import { path } from 'utils/const'
+import { validate, tests } from 'utils/vali'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {
@@ -88,14 +88,19 @@ class Login extends Component {
     this.setState({ isLoading: true })
     const { actions, history } = this.props
     const { email, password } = this.state
-    actions.login(email, password).then(({ emailVerified }) => {
-      emailVerified
-        ? history.push(path.profile)
-        : history.push({ pathname: path.confirmEmail, state: { email } })
-      this.setState({ isLoading: false })
-    }).catch(err => {
-      this.setState({ resErr: err.message, isLoading: false })
-    })
+    actions
+      .login(email, password)
+      .then(({ emailVerified }) => {
+        if (emailVerified) {
+          history.push(path.profile)
+        } else {
+          history.push({ pathname: path.confirmEmail, state: { email } })
+        }
+        this.setState({ isLoading: false })
+      })
+      .catch(err => {
+        this.setState({ resErr: err.message, isLoading: false })
+      })
   }
 
   render() {
@@ -111,7 +116,7 @@ class Login extends Component {
         />
         <div className={styles.contents}>
           <h3 className={styles.title}>Login</h3>
-          <Input  
+          <Input
             type="email"
             name="email"
             value={email}
@@ -132,7 +137,9 @@ class Login extends Component {
             disabled={isLoading}
           />
           <div className={styles.forgot}>
-            <Link to="/reset-password" className={styles.reset}>Forgot Password?</Link>
+            <Link to="/reset-password" className={styles.reset}>
+              Forgot Password?
+            </Link>
           </div>
           <div className={styles.footer}>
             <Button
@@ -156,14 +163,7 @@ class Login extends Component {
 
 const ConnectedLogin = props => (
   <Connector>
-    {
-      ({ actions }) => (
-        <Login
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({ actions }) => <Login actions={actions.app} {...props} />}
   </Connector>
 )
 

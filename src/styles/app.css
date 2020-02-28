@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Aleo-Regular';
+  src: url(../assets/fonts/Aleo-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Aleo-Bold';
+  src: url(../assets/fonts/Aleo-Bold.otf);
+}
+
+* {
+  font-family: 'Aleo-Regular' !important;
+}
+
+body {
+  color: var(--darkGray);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+b {
+  font-family: 'Aleo-Bold' !important;
+  color: var(--yellow);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--yellow) !important;
+  text-decoration: underline !important;
+}
+
+a:hover {
+  color: var(--orange) !important;
+}
+
+textarea:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+.uneditable-input:focus {
+  border-color: var(--lightYellowAlpha);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+    0 0 8px var(--lightYellowAlpha);
+  outline: 0 none;
+}
+
+input::-webkit-input-placeholder {
+  text-overflow: 'ellipsis !important';
+  color: var(--lightGray);
+  font-size: 14px;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px var(--lightLightYellowAlpha) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

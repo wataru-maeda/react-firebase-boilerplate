@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { styler, colors } from '../../../theme'
-import { Button } from '../../../components/Button'
-import FontIcon from '../../../components/FontIcon'
-import { path } from '../../../utils/const'
+import { styler, colors } from 'styles'
+import { Button } from 'components/Button'
+import FontIcon from 'components/FontIcon'
+import { path } from 'utils/const'
 
 const styles = styler({
   root: {
@@ -54,31 +53,33 @@ const styles = styler({
   },
 })
 
-class ConfirmEmail extends Component {
-  render() {
-    const { history, location: { state: { email } } } = this.props
-    if (!email) return <Redirect to={path.login} />
-    return (
-      <div className={styles.root}>
-        <div className={styles.contents}>
-          <FontIcon
-            icon="envelope-open-text"
-            className={styles.img}
-          />
-          <h2 className={styles.title}>Confirm your email</h2>
-          <p className={styles.desc}>
-            We have sent email to{'\t'}
-            <a href={`mailto:${email}`}>{email}</a>{'\t'}
-            to confirm the validity of your email address. After receiving the email follow the link provided to complete your registration.</p>
-          <Button
-            label="Back to Login"
-            className={`btn-yellow-gradation ${styles.btn}`}
-            onClick={() => history.push(path.login)}
-          />
-        </div>
+const ConfirmEmail = ({
+  history,
+  location: {
+    state: { email },
+  },
+}) => {
+  if (!email) return <Redirect to={path.login} />
+  return (
+    <div className={styles.root}>
+      <div className={styles.contents}>
+        <FontIcon icon="envelope-open-text" className={styles.img} />
+        <h2 className={styles.title}>Confirm your email</h2>
+        <p className={styles.desc}>
+          We have sent email to{'\t'}
+          <a href={`mailto:${email}`}>{email}</a>
+          {'\t'}
+          to confirm the validity of your email address. After receiving the
+          email follow the link provided to complete your registration.
+        </p>
+        <Button
+          label="Back to Login"
+          className={`btn-yellow-gradation ${styles.btn}`}
+          onClick={() => history.push(path.login)}
+        />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 ConfirmEmail.propTypes = {}

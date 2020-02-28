@@ -1,7 +1,7 @@
 import { css, cx } from 'emotion'
 // import rem from './rem'
 
-const styler = (styles) => {
+const styler = styles => {
   const wrappedStyles = {}
   const names = Object.keys(styles)
   const count = names.length
@@ -10,9 +10,14 @@ const styler = (styles) => {
     const value = styles[name]
     // const remVal = rem(value)
     if (typeof value === 'function') {
-      wrappedStyles[name] = props => css`${value(props)}`
+      wrappedStyles[name] = props =>
+        css`
+          ${value(props)}
+        `
     } else {
-      wrappedStyles[name] = css`${value}`
+      wrappedStyles[name] = css`
+        ${value}
+      `
     }
   }
   return wrappedStyles

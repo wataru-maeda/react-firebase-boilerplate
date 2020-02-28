@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { Button } from '../Button'
-import { styler, colors } from '../../theme'
+import { Button } from 'components/Button'
+import { styler, colors } from 'styles'
 
 const styles = styler({
   container: {
@@ -26,7 +26,7 @@ const styles = styler({
   input: {
     fontSize: 16,
     '&::placeholder': {
-      textOverflow: "ellipsis !important",
+      textOverflow: 'ellipsis !important',
       color: colors.lightGray,
       fontSize: 16,
     },
@@ -40,8 +40,12 @@ const styles = styler({
 })
 
 class Input extends Component {
-  state = {
-    currentType: this.props.type,
+  constructor(props) {
+    super(props)
+    const { type } = props
+    this.state = {
+      currentType: type,
+    }
   }
 
   render() {
@@ -55,7 +59,7 @@ class Input extends Component {
       onChange,
       maxLength,
       className,
-      style,  
+      style,
       error,
       disabled,
     } = this.props
@@ -64,13 +68,12 @@ class Input extends Component {
     const isPw = type === 'password'
     const isPwNow = currentType === 'password'
 
-    const inputStyle = error.length > 0
-      ? 'form-control is-invalid'
-      : 'form-control'
-    
-    return (    
+    const inputStyle =
+      error.length > 0 ? 'form-control is-invalid' : 'form-control'
+
+    return (
       <div className={`form-group ${className}`}>
-        {label && <label className={styles.label}>{label}</label>}
+        {label && <aside className={styles.label}>{label}</aside>}
         <div className={styles.container}>
           <input
             value={value}
@@ -83,24 +86,22 @@ class Input extends Component {
             className={`${inputStyle} ${styles.input}`}
             style={{ ...style, backgroundImage: isPw && 'none' }}
             disabled={disabled}
-          />  
-          <div className="invalid-feedback">
-            {error}
-          </div>
-          { isPw &&
-            <Button 
-              className="btn"
-              onClick={(e) => {
+          />
+          <div className="invalid-feedback">{error}</div>
+          {isPw && (
+            <Button
+              className={`btn ${styles.button}`}
+              onClick={e => {
                 e.preventDefault()
                 this.setState({ currentType: isPwNow ? 'text' : 'password' })
               }}
-              className={styles.button}>
+            >
               <FontAwesomeIcon
                 icon={isPwNow ? faEye : faEyeSlash}
                 className={styles.icon}
               />
             </Button>
-          }
+          )}
         </div>
       </div>
     )
@@ -110,14 +111,14 @@ class Input extends Component {
 Input.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string,
-  label: PropTypes.any,
+  label: PropTypes.oneOfType([null, PropTypes.string]),
   name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   maxLength: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.object,
+  style: PropTypes.objectOf(PropTypes.object),
   error: PropTypes.string,
   disabled: PropTypes.bool,
 }

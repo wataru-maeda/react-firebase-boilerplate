@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Fade } from 'reactstrap'
-import FontIcon from '../FontIcon'
-import { styler, colors } from '../../theme'
+import FontIcon from 'components/FontIcon'
+import { styler, colors } from 'styles'
 
 const styles = styler({
   root: {
@@ -35,12 +35,12 @@ class Error extends Component {
     isPresent: false,
   }
 
-  componentWillReceiveProps(props) {
-    const { message } = props
-    if (!message
-        || (message && message.length === 0)) {
+  // eslint-disable-next-line react/no-deprecated
+  componentWillReceiveProps(nextProps) {
+    const { message } = nextProps
+    if (!message || (message && message.length === 0)) {
       this.setState({ isPresent: false })
-      return 
+      return
     }
     this.setState({ isPresent: true })
   }
@@ -50,14 +50,15 @@ class Error extends Component {
     const { message, onClose } = this.props
     return (
       <div className={styles.root}>
-        <Fade in={isPresent} className={styles.contents}> 
+        <Fade in={isPresent} className={styles.contents}>
           {message}
-          <button className={`btn ${styles.btn}`} onClick={onClose}>
-            <FontIcon
-              icon="times-circle"
-              className={styles.img}
-            />
-          </button> 
+          <button
+            type="button"
+            className={`btn ${styles.btn}`}
+            onClick={onClose}
+          >
+            <FontIcon icon="times-circle" className={styles.img} />
+          </button>
         </Fade>
       </div>
     )

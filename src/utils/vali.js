@@ -1,4 +1,3 @@
-
 export const tests = {
   input: {
     test: x => x && x.toString().replace(/\s/g, '').length > 0,
@@ -34,21 +33,16 @@ export const tests = {
   },
 }
 
-export const validate = (values, tests) => {
+export const validate = (vs, ts) => {
   const errors = {}
   let isError = false
-  Object.keys(values).forEach((key) => {
-    if (tests[key]) {
-      const {
-        test,
-        error,
-        options = {},
-      } = tests[key]
+  Object.keys(vs).forEach(key => {
+    if (ts[key]) {
+      const { test, error, options = {} } = ts[key]
       if (test && error) {
-        const res = typeof test === 'function'
-          ? test(values[key])
-          : test.test(values[key])
-        const skip = options.ifNotEmpty && !values[key].toString().length > 0
+        const res =
+          typeof test === 'function' ? test(vs[key]) : test.test(vs[key])
+        const skip = options.ifNotEmpty && !vs[key].toString().length > 0
         if (!res && !skip) {
           isError = true
           errors[key] = error

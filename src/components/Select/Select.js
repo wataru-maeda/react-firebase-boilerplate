@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import Creatable from 'react-select/creatable'
 import PropTypes from 'prop-types'
-import { styler, theme } from '../../styles'
+import { styler, colors } from 'styles'
 import './select.css'
 
 const styles = styler({
@@ -17,7 +17,7 @@ const styles = styler({
     display: 'flex',
     height: 'auto',
     marginBottom: 10,
-    color: theme.colors.purple,
+    color: colors.purple,
   },
   error: {
     marginTop: 4,
@@ -25,7 +25,7 @@ const styles = styler({
     color: 'red',
   },
   dot: {
-    color: theme.colors.purple,
+    color: colors.purple,
     marginLeft: 3,
   },
 })
@@ -44,9 +44,14 @@ const Selector = ({
   isMulti,
   isCreatable,
 }) => {
-  const titleLabel = !mandatory
-    ? <div className={styles.label}>{label}</div>
-    : <div className={styles.label}>{label}<div className={styles.dot}>*</div></div>
+  const titleLabel = !mandatory ? (
+    <div className={styles.label}>{label}</div>
+  ) : (
+    <div className={styles.label}>
+      {label}
+      <div className={styles.dot}>*</div>
+    </div>
+  )
 
   const params = {
     placeholder,
@@ -66,8 +71,8 @@ const Selector = ({
       }),
       control: (controlStyles, { isDisabled }) => ({
         ...controlStyles,
-        '&:hover': { borderColor: theme.colors.darkGray },
-        border: `1px solid ${error ? 'red' : theme.colors.lightLightGray }`,
+        '&:hover': { borderColor: colors.darkGray },
+        border: `1px solid ${error ? 'red' : colors.lightLightGray}`,
         boxShadow: 'none',
         backgroundColor: isDisabled ? 'darkGray' : 'white',
         minHeight: height,
@@ -76,45 +81,45 @@ const Selector = ({
       }),
       option: (optionStyles, { isFocused }) => ({
         ...optionStyles,
-        color: isFocused ? 'white' : theme.colors.blackPurple,
-        backgroundColor: isFocused && theme.colors.lightPurple,
+        color: isFocused ? 'white' : colors.blackPurple,
+        backgroundColor: isFocused && colors.lightPurple,
         fontSize: 20,
         padding: 10,
         transition: 0.3,
         '&:active': {
-          backgroundColor: theme.colors.purple,
+          backgroundColor: colors.purple,
         },
       }),
       placeholder: () => ({
-        color: theme.colors.lightGrayPurple,
+        color: colors.lightGrayPurple,
         opacity: 0.4,
         fontSize: 18,
       }),
       multiValue: multiValueStyles => ({
         ...multiValueStyles,
         backgroundColor: 'white',
-        border: `1px solid ${theme.colors.lightPurple}`,
+        border: `1px solid ${colors.lightPurple}`,
         borderRadius: 3,
-        margin: 5,  
+        margin: 5,
       }),
       multiValueLabel: multiValueLabelStyles => ({
         ...multiValueLabelStyles,
-        color: theme.colors.darkGray,
+        color: colors.darkGray,
         margin: '0 6px',
         fontSize: 16,
       }),
       multiValueove: multiValueoveStyles => ({
         ...multiValueoveStyles,
-        color: theme.colors.blackPurple,
-        borderLeft: `1px solid ${theme.colors.lightGray}`,
+        color: colors.blackPurple,
+        borderLeft: `1px solid ${colors.lightGray}`,
         ':hover': {
-          backgroundColor: theme.colors.lightPurple,
+          backgroundColor: colors.lightPurple,
           color: 'white',
         },
       }),
       indicatorSeparator: indicatorStyles => ({
         ...indicatorStyles,
-        color: theme.colors.lightLightGray,
+        color: colors.lightLightGray,
         margin: '15 16px 15 0',
       }),
       dropdownIndicator: dropdownStyles => ({
@@ -129,7 +134,7 @@ const Selector = ({
       colors: {
         ...t.colors,
         primary25: 'lightGray',
-        primary: theme.colors.lightPurple,
+        primary: colors.lightPurple,
       },
       spacing: {
         baseUnit: 6,
@@ -143,20 +148,20 @@ const Selector = ({
   return (
     <div className={{ ...styles.root, ...style }}>
       {label && titleLabel}
-      {isCreatable ? <Creatable {...params}/> : <Select {...params}/>}
+      {isCreatable ? <Creatable {...params} /> : <Select {...params} />}
       {error && <span className={styles.error}>{error}</span>}
     </div>
   )
 }
 
 Selector.propTypes = {
-  label: PropTypes.any,
-  values: PropTypes.array,
-  options: PropTypes.array,
+  label: PropTypes.oneOfType([null, PropTypes.string]),
+  values: PropTypes.InstanceOf(Array),
+  options: PropTypes.InstanceOf(Array),
   placeholder: PropTypes.string,
-  error: PropTypes.any,
+  error: PropTypes.oneOfType([null, PropTypes.string]),
   onChange: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.objectOf(PropTypes.object),
   disabled: PropTypes.bool,
   mandatory: PropTypes.bool,
   height: PropTypes.number,

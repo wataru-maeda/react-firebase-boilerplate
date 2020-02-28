@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import Input from '../../../components/Input'
-import { styler, colors, images } from '../../../theme'
-import { Button } from '../../../components/Button'
-import FilePicker from '../../../components/FilePicker'
-import Error from '../../../components/Error'
-import { storage } from '../../../utils/firebase'
-import Connector from '../../../utils/connector'
-import { validate, tests } from '../../../utils/vali'
+import Input from 'components/Input'
+import { styler, colors, images } from 'styles'
+import { Button } from 'components/Button'
+import FilePicker from 'components/FilePicker'
+import Error from 'components/Error'
+import { storage } from 'utils/firebase'
+import Connector from 'utils/connector'
+import { validate, tests } from 'utils/vali'
 
 const styles = styler({
   root: {
@@ -18,7 +18,7 @@ const styles = styler({
     alignItems: 'center',
   },
   contents: {
-    display: 'flex',  
+    display: 'flex',
     flexDirection: 'column',
     width: '80%',
   },
@@ -71,7 +71,7 @@ const styles = styler({
 const customTests = {
   userName: {
     test: tests.input.test,
-    error: 'Please enter a valid user name'
+    error: 'Please enter a valid user name',
   },
 }
 
@@ -85,11 +85,14 @@ class Profile extends Component {
     isLoading: false,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // set default image
-    storage.child('default/profile.png').getDownloadURL().then((url) => {
-     this.setState({ userImage: url })
-    })
+    storage
+      .child('default/profile.png')
+      .getDownloadURL()
+      .then(url => {
+        this.setState({ userImage: url })
+      })
   }
 
   handleInputChange = ({ target }) => {
@@ -116,11 +119,14 @@ class Profile extends Component {
     this.setState({ isLoading: true, resErr: null })
     const { actions } = this.props
     const { userName, userImage } = this.state
-    actions.updateMe(userName, userImage).then(() => {
-      this.setState({ resErr: null, isLoading: false })
-    }).catch(err => {
-      this.setState({ resErr: err.message, isLoading: false })
-    }) 
+    actions
+      .updateMe(userName, userImage)
+      .then(() => {
+        this.setState({ resErr: null, isLoading: false })
+      })
+      .catch(err => {
+        this.setState({ resErr: err.message, isLoading: false })
+      })
   }
 
   render() {
@@ -140,14 +146,22 @@ class Profile extends Component {
           <h3 className={styles.title}>Set Profile</h3>
           <div className={styles.row}>
             <img
-              src={typeof userImage === 'object' ? URL.createObjectURL(userImage) : userImage}
+              src={
+                typeof userImage === 'object'
+                  ? URL.createObjectURL(userImage)
+                  : userImage
+              }
               className={styles.img}
               alt="logo"
             />
             <FilePicker
               maxSize={500000}
               onSelect={f => this.setState({ userImage: f, resErr: null })}
-              onError={() => this.setState({ resErr: 'Please select an image less than 500kb' })}
+              onError={() =>
+                this.setState({
+                  resErr: 'Please select an image less than 500kb',
+                })
+              }
             >
               <p className={styles.file}>Set Profile Image</p>
             </FilePicker>
@@ -184,15 +198,12 @@ class Profile extends Component {
 
 const ConnectedProfile = props => (
   <Connector>
-    {
-      ({ actions, state: { app: { me } } }) => (
-        <Profile
-          me={me}
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({
+      actions,
+      state: {
+        app: { me },
+      },
+    }) => <Profile me={me} actions={actions.app} {...props} />}
   </Connector>
 )
 

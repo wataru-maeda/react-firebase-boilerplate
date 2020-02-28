@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { styler, images } from '../../theme'
-import { storage } from '../../utils/firebase'
-import Connector from '../../utils/connector'
+import { styler, images } from 'styles'
+import { storage } from 'utils/firebase'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {
@@ -20,7 +20,7 @@ const styles = styler({
     height: 30,
     borderRadius: 15,
     marginRight: 10,
-  }
+  },
 })
 
 class TopNavigation extends Component {
@@ -29,21 +29,27 @@ class TopNavigation extends Component {
     userImage: images.profile,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // set default image
     const { me } = this.props
-    storage.child(me.photoURL).getDownloadURL().then((url) => {
-     this.setState({ userImage: url, userName: me.displayName })
-    })
+    storage
+      .child(me.photoURL)
+      .getDownloadURL()
+      .then(url => {
+        this.setState({ userImage: url, userName: me.displayName })
+      })
   }
 
   render() {
-    const { actions } = this.props
     const { userImage, userName } = this.state
     return (
       <div className={styles.root}>
         <img src={userImage} className={styles.img} alt="profile" />
-        {userName && <aside className={styles.name}>Welcome <b>{userName}</b> !</aside>}
+        {userName && (
+          <aside className={styles.name}>
+            Welcome <b>{userName}</b> !
+          </aside>
+        )}
       </div>
     )
   }
@@ -51,15 +57,12 @@ class TopNavigation extends Component {
 
 const ConnectedTopNavigation = props => (
   <Connector>
-    {
-      ({ actions, state: { app: { me } } }) => (
-        <TopNavigation
-          me={me}
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({
+      actions,
+      state: {
+        app: { me },
+      },
+    }) => <TopNavigation me={me} actions={actions.app} {...props} />}
   </Connector>
 )
 

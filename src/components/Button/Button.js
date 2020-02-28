@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
-import { PropTypes } from 'prop-types'
-import Spinner from '../Spinner'
-import { styler } from '../../theme'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { styler } from 'styles'
+import Spinner from 'components/Spinner'
 import './button.css'
 
 const styles = styler({
@@ -28,18 +28,19 @@ const Button = ({
   isLoading,
 }) => (
   <button
+    type="button"
     className={`${styles.root} ${className}`}
     style={style}
     onClick={onClick}
     disabled={disabled || isLoading}
   >
     {isLoading ? (
-      <Spinner iconStyle={spinnerStyle}/>
+      <Spinner iconStyle={spinnerStyle} />
     ) : (
-      <Fragment>
+      <>
         {label}
         {children}
-      </Fragment>
+      </>
     )}
   </button>
 )
@@ -47,9 +48,9 @@ const Button = ({
 Button.propTypes = {
   label: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.object,
-  spinnerStyle: PropTypes.object,
-  children: PropTypes.any,
+  style: PropTypes.objectOf(PropTypes.object),
+  spinnerStyle: PropTypes.objectOf(PropTypes.object),
+  children: PropTypes.node,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   isLoading: PropTypes.bool,

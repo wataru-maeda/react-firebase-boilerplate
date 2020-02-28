@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import PropsType from 'prop-types'
-import { styler, theme } from '../../styles'
-import Connector from '../../utils/connector'
+import PropTypes from 'prop-types'
+import { styler, colors } from 'styles'
+import Connector from 'utils/connector'
 
 const styles = styler({
   root: {
@@ -19,11 +19,11 @@ const styles = styler({
     marginRight: 80,
   },
   button: {
-    color: theme.colors.gray,
+    color: colors.gray,
     fontSize: 24,
   },
   buttonSelected: {
-    color: theme.colors.blackPurple,
+    color: colors.blackPurple,
     fontSize: 24,
   },
 })
@@ -33,11 +33,11 @@ class TabMenus extends Component {
     super(props)
     const { children } = this.props
     if (!children || (children && children.length === 0)) return
-    const name = children[0].props.name
+    const { name } = children[0].props
     this.state = { selectedName: name }
   }
 
-  onClick = (name) => {
+  onClick = name => {
     this.setState({ selectedName: name })
   }
 
@@ -47,21 +47,21 @@ class TabMenus extends Component {
     if (!children || (children && children.length === 0)) return <div />
 
     return (
-      <div
-        className={`${styles.root} ${className}`}
-        style={style}
-      >
+      <div className={`${styles.root} ${className}`} style={style}>
         <div className={styles.menu}>
           {children.map(({ props: { name } }) => (
             <button
               type="button"
-              className={`${styles.btn} ${selectedName === name ? styles.buttonSelected : styles.button}`}
-              onClick={() => this.onClick(name)}>
+              className={`${styles.btn} ${
+                selectedName === name ? styles.buttonSelected : styles.button
+              }`}
+              onClick={() => this.onClick(name)}
+            >
               {name}
             </button>
           ))}
         </div>
-        {children.find( ({ props: { name } }) => name === selectedName)}
+        {children.find(({ props: { name } }) => name === selectedName)}
       </div>
     )
   }
@@ -69,21 +69,18 @@ class TabMenus extends Component {
 
 const ConnectedTabMenus = props => (
   <Connector>
-    {
-      ({ actions, state: { app: { me } } }) => (
-        <TabMenus
-          me={me}
-          actions={actions.app}
-          {...props}
-        />
-      )
-    }
+    {({
+      actions,
+      state: {
+        app: { me },
+      },
+    }) => <TabMenus me={me} actions={actions.app} {...props} />}
   </Connector>
 )
 
 TabMenus.propTypes = {
-  children: PropsType.any,
-  style: PropsType.object,
+  children: PropTypes.node,
+  style: PropTypes.objectOf(PropTypes.object),
 }
 
 TabMenus.defaultProps = {

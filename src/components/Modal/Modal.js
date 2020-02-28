@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal } from 'reactstrap'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
+import { styler, images } from 'styles'
 import './modal.css'
-import { styler, images } from '../../theme'
 
 const styles = styler({
   closeContainer: {
@@ -15,43 +15,35 @@ const styles = styler({
       padding: '16px 16px 0',
     },
   },
+  button: {
+    background: 'transparent',
+    outline: 'none !important',
+    border: 'none',
+  },
   closeImg: {
     width: 30,
     height: 30,
   },
 })
 
-const modal = ({
-  isOpen,
-  centered,
-  toggleModal,
-  children,
-  size,
-}) => (
-  <Modal
-    size={size}
-    isOpen={isOpen}
-    centered={centered}
-    toggle={toggleModal}
-  > 
-  <div className={styles.closeContainer}>
-    <aside />
-    <img
-      src={images.close}
-      className={styles.closeImg}
-      onClick={toggleModal}
-    />
-  </div>
+const modal = ({ isOpen, centered, toggleModal, children, size }) => (
+  <Modal size={size} isOpen={isOpen} centered={centered} toggle={toggleModal}>
+    <div className={styles.closeContainer}>
+      <aside />
+      <button type="button" className={styles.button} onClick={toggleModal}>
+        <img src={images.close} className={styles.closeImg} alt="close" />
+      </button>
+    </div>
     {children}
   </Modal>
 )
 
-
 modal.propTypes = {
   isOpen: PropTypes.bool,
+  centered: PropTypes.bool,
   toggleModal: PropTypes.func,
-  children: PropTypes.any,
-  size: PropTypes.any,
+  children: PropTypes.node,
+  size: PropTypes.string,
 }
 
 modal.defaultProps = {
