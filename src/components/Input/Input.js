@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -39,73 +39,61 @@ const styles = styler({
   },
 })
 
-class Input extends Component {
-  constructor(props) {
-    super(props)
-    const { type } = props
-    this.state = {
-      currentType: type,
-    }
-  }
+const Input = ({
+  id,
+  label,
+  type,
+  name,
+  value,
+  placeholder,
+  onChange,
+  maxLength,
+  className,
+  style,
+  error,
+  disabled,
+}) => {
+  const [currentType, setCurrentType] = useState('text')
+  const isPw = type === 'password'
+  const isPwNow = currentType === 'password'
 
-  render() {
-    const {
-      id,
-      label,
-      type,
-      name,
-      value,
-      placeholder,
-      onChange,
-      maxLength,
-      className,
-      style,
-      error,
-      disabled,
-    } = this.props
+  const inputStyle =
+    error.length > 0 ? 'form-control is-invalid' : 'form-control'
 
-    const { currentType = 'text' } = this.state
-    const isPw = type === 'password'
-    const isPwNow = currentType === 'password'
-
-    const inputStyle =
-      error.length > 0 ? 'form-control is-invalid' : 'form-control'
-
-    return (
-      <div className={`form-group ${className}`}>
-        {label && <aside className={styles.label}>{label}</aside>}
-        <div className={styles.container}>
-          <input
-            value={value}
-            type={currentType}
-            id={id}
-            name={name}
-            onChange={onChange}
-            placeholder={placeholder}
-            maxLength={maxLength}
-            className={`${inputStyle} ${styles.input}`}
-            style={{ ...style, backgroundImage: isPw && 'none' }}
-            disabled={disabled}
-          />
-          <div className="invalid-feedback">{error}</div>
-          {isPw && (
-            <Button
-              className={`btn ${styles.button}`}
-              onClick={e => {
-                e.preventDefault()
-                this.setState({ currentType: isPwNow ? 'text' : 'password' })
-              }}
-            >
-              <FontAwesomeIcon
-                icon={isPwNow ? faEye : faEyeSlash}
-                className={styles.icon}
-              />
-            </Button>
-          )}
-        </div>
+  return (
+    <div className={`form-group ${className}`}>
+      {label && <aside className={styles.label}>{label}</aside>}
+      <div className={styles.container}>
+        <input
+          value={value}
+          type={currentType}
+          id={id}
+          name={name}
+          onChange={onChange}
+          placeholder={placeholder}
+          maxLength={maxLength}
+          className={`${inputStyle} ${styles.input}`}
+          style={{ ...style, backgroundImage: isPw && 'none' }}
+          disabled={disabled}
+        />
+        <div className="invalid-feedback">{error}</div>
+        {isPw && (
+          <Button
+            className={`btn ${styles.button}`}
+            onClick={e => {
+              e.preventDefault()
+              setCurrentType(isPwNow ? 'text' : 'password')
+            }}
+          >
+            <FontAwesomeIcon
+              icon={isPwNow ? faEye : faEyeSlash}
+              className={styles.icon}
+            />
+          </Button>
+        )}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Input.propTypes = {
@@ -118,7 +106,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   maxLength: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: PropTypes.shape({}),
   error: PropTypes.string,
   disabled: PropTypes.bool,
 }
