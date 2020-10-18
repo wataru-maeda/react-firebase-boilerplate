@@ -17,7 +17,7 @@ const styles = styler({
   },
   button: {
     position: 'absolute',
-    right: 10,
+    right: 5,
     top: 0,
     height: 40,
     border: 'none',
@@ -32,8 +32,8 @@ const styles = styler({
     },
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     fontSize: 16,
     color: colors.darkGray,
   },

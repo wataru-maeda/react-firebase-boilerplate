@@ -82,7 +82,7 @@ class Home extends Component {
           <div className={styles.buttons}>
             <Button
               label="Download for free"
-              className={`btn-yellow-gradation ${styles.download}`}
+              className={`btn-purple-gradation ${styles.download}`}
               onClick={() => {
                 window.location.href =
                   'https://github.com/WataruMaeda/react-firebase-boilerplate'
@@ -90,7 +90,7 @@ class Home extends Component {
             />
             <Button
               label="Logout"
-              className={`btn-orange-outline ${styles.logout}`}
+              className={`btn-purple-outline ${styles.logout}`}
               onClick={() => actions.logout()}
             />
           </div>

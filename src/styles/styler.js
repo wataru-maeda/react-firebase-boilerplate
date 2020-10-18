@@ -1,5 +1,5 @@
 import { css, cx } from 'emotion'
-// import rem from './rem'
+import rem from './rem'
 
 const styler = styles => {
   const wrappedStyles = {}
@@ -8,7 +8,7 @@ const styler = styles => {
   for (let i = 0; i < count; i += 1) {
     const name = names[i]
     const value = styles[name]
-    // const remVal = rem(value)
+    const remVal = rem(value)
     if (typeof value === 'function') {
       wrappedStyles[name] = props =>
         css`
@@ -16,7 +16,7 @@ const styler = styles => {
         `
     } else {
       wrappedStyles[name] = css`
-        ${value}
+        ${remVal}
       `
     }
   }

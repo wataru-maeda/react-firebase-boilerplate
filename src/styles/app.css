@@ -12,6 +12,24 @@
   font-family: 'Aleo-Regular' !important;
 }
 
+@media (min-width: 140.625vh) and (max-height: 71.11vw) {
+  html {
+    font-size: 2.3578125vh;
+  }
+}
+
+@media (max-width: 140.624vh) and (min-height: 71.111vw) {
+  html {
+    font-size: 1.74875vw;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   color: var(--darkGray);
   -webkit-font-smoothing: antialiased;
@@ -25,18 +43,18 @@ h3,
 h4,
 b {
   font-family: 'Aleo-Bold' !important;
-  color: var(--yellow);
+  color: var(--blackPurple);
   padding: 0;
   margin: 0;
 }
 
 a {
-  color: var(--yellow) !important;
+  color: var(--purple) !important;
   text-decoration: underline !important;
 }
 
 a:hover {
-  color: var(--orange) !important;
+  color: var(--shockingPurple) !important;
 }
 
 textarea:focus,

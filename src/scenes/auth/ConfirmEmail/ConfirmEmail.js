@@ -23,12 +23,12 @@ const styles = styler({
   },
   img: {
     fontSize: 80,
-    color: colors.yellow,
+    color: colors.purple,
   },
   title: {
     fontSize: 24,
     marginTop: 40,
-    color: colors.yellow,
+    color: colors.purple,
     textAlign: 'center',
   },
   desc: {
@@ -74,7 +74,7 @@ const ConfirmEmail = ({
         </p>
         <Button
           label="Back to Login"
-          className={`btn-yellow-gradation ${styles.btn}`}
+          className={`btn-purple-gradation ${styles.btn}`}
           onClick={() => history.push(path.login)}
         />
       </div>

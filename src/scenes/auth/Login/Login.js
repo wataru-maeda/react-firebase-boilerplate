@@ -15,6 +15,7 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    background: colors.lightGrayPurple,
   },
   contents: {
     display: 'flex',
@@ -22,7 +23,7 @@ const styles = styler({
     width: '80%',
   },
   title: {
-    color: colors.yellow,
+    color: colors.purple,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 60,
@@ -144,13 +145,13 @@ class Login extends Component {
           <div className={styles.footer}>
             <Button
               label="Login"
-              className={`btn-yellow-gradation ${styles.btn}`}
+              className={`btn-purple-gradation ${styles.btn}`}
               onClick={this.onLogin}
               isLoading={isLoading}
             />
             <Button
               label="Go to Signup"
-              className={`btn-orange-outline ${styles.btn}`}
+              className={`btn-purple-outline ${styles.btn}`}
               onClick={() => history.push(path.signup)}
               isLoading={isLoading}
             />

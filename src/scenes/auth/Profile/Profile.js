@@ -16,6 +16,7 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    background: colors.lightGrayPurple,
   },
   contents: {
     display: 'flex',
@@ -29,14 +30,14 @@ const styles = styler({
     alignItems: 'center',
   },
   title: {
-    color: colors.yellow,
+    color: colors.purple,
     fontSize: 24,
     marginBottom: 40,
   },
   file: {
     fontSize: 16,
     textDecoration: 'underline',
-    color: colors.yellow,
+    color: colors.purple,
     '&:hover': {
       color: colors.orange,
     },
@@ -179,13 +180,13 @@ class Profile extends Component {
           <div className={styles.footer}>
             <Button
               label="Create Account"
-              className={`btn-yellow-gradation ${styles.btn}`}
+              className={`btn-purple-gradation ${styles.btn}`}
               onClick={this.onSubmit}
               isLoading={isLoading}
             />
             <Button
               label="Back"
-              className={`btn-orange-outline ${styles.btn}`}
+              className={`btn-purple-outline ${styles.btn}`}
               onClick={() => history.goBack()}
               display={isLoading}
             />

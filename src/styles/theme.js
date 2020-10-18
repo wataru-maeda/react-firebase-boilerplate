@@ -25,9 +25,10 @@ export const colors = {
   darkGray: '#2e3a4d',
   lightGray: '#edeff1',
   lightLightGray: '#e3e7ea',
-  yellow_to_orange:
-    'linear-gradient(to right, rgba(242, 196, 50, .8), rgba(233, 133, 98, .8))',
-  yellow_to_yellow: 'linear-gradient(to right, #efc568, #f2ae74)',
+  pink_to_purple:
+    'linear-gradient(to right, rgba(255, 18, 102, .8), rgba(121, 101, 216, .8))',
+  purple_to_purple: 'linear-gradient(to right, #9388db, #8200ff)',
+  pink_to_yellow: 'linear-gradient(to right, #ff3c68, #ffb600)',
 }
 
 export const fonts = {

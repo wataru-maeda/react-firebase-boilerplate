@@ -42,7 +42,7 @@ const styles = styler({
     right: 0,
     bottom: 0,
     left: 0,
-    background: colors.yellow_to_orange,
+    background: colors.pink_to_purple,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

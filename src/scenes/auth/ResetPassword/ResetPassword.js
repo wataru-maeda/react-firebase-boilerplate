@@ -22,7 +22,7 @@ const styles = styler({
     width: '80%',
   },
   title: {
-    color: colors.yellow,
+    color: colors.purple,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 50,
@@ -120,13 +120,13 @@ class ResetPassword extends Component {
           <div className={styles.footer}>
             <Button
               label="Send"
-              className={`btn-yellow-gradation ${styles.btn}`}
+              className={`btn-purple-gradation ${styles.btn}`}
               onClick={this.onSend}
               isLoading={isLoading}
             />
             <Button
               label="Back to Login"
-              className={`btn-orange-outline ${styles.btn}`}
+              className={`btn-purple-outline ${styles.btn}`}
               onClick={() => history.push(path.login)}
               isLoading={isLoading}
             />
