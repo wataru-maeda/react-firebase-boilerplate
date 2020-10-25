@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import { Button } from 'components/Button'
 import FontIcon from 'components/FontIcon'
 import { path } from 'utils/const'
@@ -23,12 +23,12 @@ const styles = styler({
   },
   img: {
     fontSize: 80,
-    color: colors.yellow,
+    color: colors.purple,
   },
   title: {
     fontSize: 24,
     marginTop: 40,
-    color: colors.yellow,
+    color: colors.purple,
     textAlign: 'center',
   },
   desc: {
@@ -74,7 +74,7 @@ const ConfirmEmail = ({
         </p>
         <Button
           label="Back to Login"
-          className={`btn-yellow-gradation ${styles.btn}`}
+          className={`btn-purple-gradation ${styles.btn}`}
           onClick={() => history.push(path.login)}
         />
       </div>

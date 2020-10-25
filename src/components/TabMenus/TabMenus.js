@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import Connector from 'utils/connector'
 
 const styles = styler({

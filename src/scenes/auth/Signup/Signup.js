@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Input from 'components/Input'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import { Button } from 'components/Button'
 import Error from 'components/Error'
 import { path } from 'utils/const'
@@ -14,6 +14,7 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    background: colors.lightGrayPurple,
   },
   contents: {
     display: 'flex',
@@ -21,7 +22,7 @@ const styles = styler({
     width: '80%',
   },
   title: {
-    color: colors.yellow,
+    color: colors.purple,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 60,
@@ -131,13 +132,13 @@ class Signup extends Component {
           <div className={styles.footer}>
             <Button
               label="Signup"
-              className={`btn-yellow-gradation ${styles.btn}`}
+              className={`btn-purple-gradation ${styles.btn}`}
               onClick={this.onSignup}
               isLoading={isLoading}
             />
             <Button
               label="Go to Login"
-              className={`btn-orange-outline ${styles.btn}`}
+              className={`btn-purple-outline ${styles.btn}`}
               onClick={() => history.push('/login')}
               isLoading={isLoading}
             />

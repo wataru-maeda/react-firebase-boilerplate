@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'components/Button'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 
 const styles = styler({
   container: {
@@ -17,7 +17,7 @@ const styles = styler({
   },
   button: {
     position: 'absolute',
-    right: 10,
+    right: 5,
     top: 0,
     height: 40,
     border: 'none',
@@ -32,8 +32,8 @@ const styles = styler({
     },
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     fontSize: 16,
     color: colors.darkGray,
   },
@@ -53,7 +53,9 @@ const Input = ({
   error,
   disabled,
 }) => {
-  const [currentType, setCurrentType] = useState('text')
+  const [currentType, setCurrentType] = useState(
+    type === 'password' ? 'password' : 'text',
+  )
   const isPw = type === 'password'
   const isPwNow = currentType === 'password'
 

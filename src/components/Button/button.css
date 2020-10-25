@@ -1,53 +1,52 @@
-
 /* gradation */
-.btn-yellow-gradation {
-  border: 0.06rem solid var(--yellow_to_yellow) !important;
-  background: var(--yellow_to_yellow) !important;
-  color:  white;
+.btn-purple-gradation {
+  border: 0.06rem solid var(--purple_to_purple) !important;
+  background: var(--purple_to_purple) !important;
+  color: white;
   border-radius: 0.18rem;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
   position: relative;
   z-index: 1;
 }
 
-.btn-yellow-gradation::before {
-  content: "";
+.btn-purple-gradation::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-color: var(--yellow_to_orange) !important;
-  background: var(--yellow_to_orange) !important;
+  border-color: var(--pink_to_purple) !important;
+  background: var(--pink_to_purple) !important;
   color: white;
   opacity: 0;
   transition: 0.3s;
   z-index: -1;
 }
 
-.btn-yellow-gradation:hover::before {
+.btn-purple-gradation:hover::before {
   opacity: 1;
 }
 
 /* Outline */
-.btn-orange-outline {
-  border: 0.06rem solid var(--yellow) !important;
+.btn-purple-outline {
+  border: 0.06rem solid var(--purple) !important;
   background-color: white !important;
-  color: var(--orange);
+  color: var(--purple);
   border-radius: 0.18rem;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
-.btn-orange-outline:hover {
-  border-color: var(--warmRed) !important;
-  background-color: var(--warmRed) !important;
+.btn-purple-outline:hover {
+  border-color: var(--lightPurpleAlpha) !important;
+  background-color: var(--lightPurpleAlpha) !important;
   color: white;
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s !important;
 }
 
 /* common */
 button:disabled,
-button[disabled] {  
+button[disabled] {
   opacity: 0.6;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }

@@ -1,5 +1,12 @@
 const remSize = 16
-const exceptions = ['flex', 'fontWeight', 'opacity', 'zIndex', 'boxShadow']
+const exceptions = [
+  'flex',
+  'fontWeight',
+  'opacity',
+  'zIndex',
+  'boxShadow',
+  'lineHeight',
+]
 
 const min = x => {
   const v = x / remSize
@@ -24,6 +31,7 @@ const px2rem = ps => {
 }
 
 const rem = e => {
+  if (!e) return e
   const s = { ...e }
   const ks = Object.keys(e)
   const c = ks.length

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import Modal from 'components/Modal'
 import FontIcon from 'components/FontIcon'
 import { Button } from 'components/Button'
@@ -12,16 +12,17 @@ const styles = styler({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 50,
+    background: colors.lightGrayPurple,
   },
   img: {
     fontSize: 80,
-    color: colors.yellow,
+    color: colors.purple,
   },
   title: {
     fontSize: 24,
     marginTop: 30,
     textAlign: 'center',
-    color: colors.yellow,
+    color: colors.purple,
   },
   desc: {
     whiteSpace: 'pre-line',
@@ -56,7 +57,7 @@ const SentEmailPopup = ({ email, isOpen, onClick }) => {
         </p>
         <Button
           label="OK"
-          className={`btn-yellow-gradation ${styles.btn}`}
+          className={`btn-purple-gradation ${styles.btn}`}
           onClick={onClick}
         />
       </div>

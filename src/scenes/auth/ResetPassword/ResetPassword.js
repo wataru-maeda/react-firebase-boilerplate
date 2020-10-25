@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Input from 'components/Input'
 import Error from 'components/Error'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import { validate, tests } from 'utils/vali'
 import { path } from 'utils/const'
 import { Button } from 'components/Button'
@@ -15,6 +15,7 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    background: colors.lightGrayPurple,
   },
   contents: {
     display: 'flex',
@@ -22,7 +23,7 @@ const styles = styler({
     width: '80%',
   },
   title: {
-    color: colors.yellow,
+    color: colors.purple,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 50,
@@ -120,13 +121,13 @@ class ResetPassword extends Component {
           <div className={styles.footer}>
             <Button
               label="Send"
-              className={`btn-yellow-gradation ${styles.btn}`}
+              className={`btn-purple-gradation ${styles.btn}`}
               onClick={this.onSend}
               isLoading={isLoading}
             />
             <Button
               label="Back to Login"
-              className={`btn-orange-outline ${styles.btn}`}
+              className={`btn-purple-outline ${styles.btn}`}
               onClick={() => history.push(path.login)}
               isLoading={isLoading}
             />
