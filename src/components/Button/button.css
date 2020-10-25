@@ -31,7 +31,7 @@
 /* Outline */
 .btn-purple-outline {
   border: 0.06rem solid var(--purple) !important;
-  background-color: white;
+  background-color: white !important;
   color: var(--purple);
   border-radius: 0.18rem;
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;

@@ -1,6 +1,8 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/storage'
+import 'firebase/performance'
+import 'firebase/analytics'
 
 const config = {
   apiKey: 'YOUR-API-KEY',
@@ -13,8 +15,10 @@ const config = {
 }
 
 firebase.initializeApp(config)
+firebase.analytics()
 
 export const auth = firebase.auth()
 export const storage = firebase.storage().ref()
+export const performance = firebase.performance()
 
 export default firebase
