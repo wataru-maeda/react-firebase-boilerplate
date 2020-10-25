@@ -2,7 +2,7 @@
 
 - [Live Preview](https://react-firebase-boilerpla-ce757.web.app/)
 
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss4.png' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss1.png' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss2.png' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss3.png' width='33%'>
+<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss1.jpg' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss2.jpg' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss3.jpg' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss4.jpg' width='33%'>
 
 ## About
 
