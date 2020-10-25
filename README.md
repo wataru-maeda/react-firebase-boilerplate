@@ -44,7 +44,7 @@ In the demo, you can try it out the authentication function. Create your account
 
 #### 2. Setup boilerplate
 
-- Download the boilerplate from **_Download Zip_** button
+- Click "Use Template" to start or download the boilerplate from **Download Zip** button
 
 - Go to [firebase.js](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/src/utils/firebase.js#L6-L12) and replace keys.
 
