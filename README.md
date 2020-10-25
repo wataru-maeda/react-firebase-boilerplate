@@ -8,8 +8,6 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
-This project is made based on [react-boilerplate](https://github.com/WataruMaeda/react-boilerplate)
-
 Firebase is a google platform to help us to build an app quickly without building infrastructure. It's easy to use and most of the setup is simple and straightforward. But we still need to go through several steps to using their service. In this boilerplate, this kind of setup done for you. Also, most of the web app needs authentication. This template provides you simple signup/login, reset password page as well as set profile page. These pages are created for you and these pages are working with firebase auth service so that you don't need to create by youself from scratch.
 
 In the demo, you can try it out the authentication function. Create your account with your email and password. After confirming your email address. Set a user name and profile image. Then you can go into the dashboard.
