@@ -53,7 +53,9 @@ const Input = ({
   error,
   disabled,
 }) => {
-  const [currentType, setCurrentType] = useState('text')
+  const [currentType, setCurrentType] = useState(
+    type === 'password' ? 'password' : 'text',
+  )
   const isPw = type === 'password'
   const isPwNow = currentType === 'password'
 
