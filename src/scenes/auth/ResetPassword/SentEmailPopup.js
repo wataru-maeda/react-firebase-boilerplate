@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import Modal from 'components/Modal'
 import FontIcon from 'components/FontIcon'
 import { Button } from 'components/Button'

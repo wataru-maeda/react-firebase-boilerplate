@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { styler, images, colors, fonts } from 'styles'
+import { styler, images, colors, fonts } from 'theme'
 import { Button } from 'components/Button'
 import Connector from 'utils/connector'
 import TopNavigation from 'subviews/TopNavigation'

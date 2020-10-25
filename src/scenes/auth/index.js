@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { styler, images, colors } from 'styles'
+import { styler, images, colors, breakpoints } from 'theme'
 import { path } from 'utils/const'
 
 // screens
@@ -25,6 +25,9 @@ const styles = styler({
     alignItems: 'center',
     position: 'relative',
     padding: 20,
+    [breakpoints.phone]: {
+      display: 'none',
+    },
   },
   fields: {
     flex: 1,
@@ -98,7 +101,6 @@ const auth = () => (
       animate="enter"
       exit="exit"
     >
-      {/* <img src={images.bg} className={styles.bg} /> */}
       <div className={styles.cover}>
         <div className={styles.coverContainer}>
           <motion.img

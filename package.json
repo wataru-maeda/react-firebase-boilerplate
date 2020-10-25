@@ -1,6 +1,6 @@
 {
   "name": "react-firebase-boilerplate",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",

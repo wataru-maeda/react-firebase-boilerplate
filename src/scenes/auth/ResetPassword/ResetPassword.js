@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Input from 'components/Input'
 import Error from 'components/Error'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import { validate, tests } from 'utils/vali'
 import { path } from 'utils/const'
 import { Button } from 'components/Button'
@@ -15,6 +15,7 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    background: colors.lightGrayPurple,
   },
   contents: {
     display: 'flex',

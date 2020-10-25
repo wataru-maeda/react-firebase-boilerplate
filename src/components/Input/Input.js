@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'components/Button'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 
 const styles = styler({
   container: {

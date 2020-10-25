@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Fade } from 'reactstrap'
 import FontIcon from 'components/FontIcon'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 
 const styles = styler({
   root: {

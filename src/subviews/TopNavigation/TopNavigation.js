@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { styler, images } from 'styles'
+import { styler, images } from 'theme'
 import { storage } from 'utils/firebase'
 import Connector from 'utils/connector'
 

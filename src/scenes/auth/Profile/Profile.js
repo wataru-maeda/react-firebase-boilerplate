@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Input from 'components/Input'
-import { styler, colors, images } from 'styles'
+import { styler, colors, images } from 'theme'
 import { Button } from 'components/Button'
 import FilePicker from 'components/FilePicker'
 import Error from 'components/Error'

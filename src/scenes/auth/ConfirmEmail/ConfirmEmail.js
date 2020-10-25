@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
-import { styler, colors } from 'styles'
+import { styler, colors } from 'theme'
 import { Button } from 'components/Button'
 import FontIcon from 'components/FontIcon'
 import { path } from 'utils/const'
