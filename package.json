@@ -15,7 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "pretty-quick --staged",
+    "test:unit": "node_modules/.bin/jest --passWithNoTests",
+    "lint": "node_modules/.bin/eslint src/ --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +50,17 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css}": [
+      "yarn format",
+      "yarn lint",
+      "yarn test:unit"
+    ]
   }
 }
