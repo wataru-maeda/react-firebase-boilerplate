@@ -12,6 +12,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-spinners": "^0.10.6",
+    "source-map-explorer": "^2.5.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -22,7 +23,8 @@
     "format": "pretty-quick --staged",
     "lint": "node_modules/.bin/eslint src/ --quiet --fix",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "analyze": "yarn build && source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": [
