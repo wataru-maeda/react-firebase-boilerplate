@@ -1,37 +1,27 @@
 {
   "name": "react-firebase-boilerplate",
-  "version": "2.0.2",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.6",
-    "bootstrap": "^4.3.1",
-    "emotion": "^10.0.17",
-    "firebase": "^7.2.1",
-    "framer-motion": "^1.6.15",
-    "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-loadable": "^5.5.0",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "react-select": "^3.0.8",
-    "reactstrap": "^8.0.1",
-    "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "node_modules/.bin/eslint src/ --fix"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -46,39 +36,16 @@
     ]
   },
   "devDependencies": {
-    "acorn": "^7.1.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.8.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
-    "husky": "^4.2.3",
-    "kind-of": "^6.0.3",
-    "lint-staged": "^10.0.7",
-    "minimist": "^0.2.1",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^2.0.1"
-  },
-  "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true,
-    "bracketSpacing": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,css}": [
-      "pretty-quick --staged",
-      "yarn lint",
-      "jest --bail --findRelatedTests"
-    ]
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "husky": "4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   }
 }
