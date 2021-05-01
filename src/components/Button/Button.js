@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { styler } from 'theme'
-import Spinner from 'components/Spinner'
+// import Spinner from '../Spinner'
 import './button.css'
 
 const styles = styler({
@@ -33,14 +33,14 @@ const Button = ({
     disabled={disabled || isLoading}
     {...others}
   >
-    {isLoading ? (
+    {/* {isLoading ? (
       <Spinner iconStyle={spinnerStyle} />
-    ) : (
-      <>
-        {label}
-        {children}
-      </>
-    )}
+    ) : ( */}
+    <>
+      {label}
+      {children}
+    </>
+    {/* )} */}
   </button>
 )
 
