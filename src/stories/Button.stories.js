@@ -1,13 +1,5 @@
 import { Button } from 'components/Button'
 
-export default {
-  title: 'Example/Button',
-  component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-}
-
 const Template = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
@@ -31,4 +23,12 @@ export const Small = Template.bind({})
 Small.args = {
   size: 'small',
   label: 'Button',
+}
+
+export default {
+  title: 'Example/Button',
+  component: Button,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 }

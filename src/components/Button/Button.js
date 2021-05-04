@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { styler } from 'theme'
 // import Spinner from '../Spinner'
-import './button.css'
+import './button.scss'
 
 const styles = styler({
   root: {
