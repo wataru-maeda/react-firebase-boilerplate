@@ -1,0 +1,49 @@
+@import './_variables';
+
+/**
+ * ----------------------------------------
+ * Breakpoints
+ * ----------------------------------------
+ */
+
+@mixin phone {
+  @media (max-width: #{$breakpoint-phone}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$breakpoint-laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin set-breakpoint-min($size) {
+  @media (min-width: $size + 'px') {
+    @content;
+  }
+}
+
+@mixin set-breakpoint-max($size) {
+  @media (max-width: $size + 'px') {
+    @content;
+  }
+}
+
+@mixin set-breakpoint-between($min, $max) {
+  @media (min-width: $min + 'px') and (max-width: $max + 'px') {
+    @content;
+  }
+}

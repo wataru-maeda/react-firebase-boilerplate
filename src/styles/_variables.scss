@@ -1,0 +1,42 @@
+/**
+ * ----------------------------------------
+ * Colors
+ * ----------------------------------------
+ */
+
+$color-red: #ff4956;
+$color-pink: #ff3b86;
+$color-purple: #9d7fe3;
+$color-black: #333a41;
+
+/**
+ * ----------------------------------------
+ * Fonts
+ * ----------------------------------------
+ */
+
+$font-stack: Helvetica, sans-serif;
+$font-main: '';
+$font-sub: '';
+
+/**
+ * ----------------------------------------
+ * Breakpoints
+ * ----------------------------------------
+ */
+
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 992px;
+$breakpoint-desktop: 1280px;
+
+/**
+ * ----------------------------------------
+ * Spacers
+ * ----------------------------------------
+ */
+
+$spacer: 1rem !default;
+$spacer-small: $spacer * 1;
+$spacer-medium: $spacer * 2;
+$spacer-large: $spacer * 3;

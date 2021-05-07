@@ -1,6 +1,27 @@
 import { css } from '@emotion/css'
 import rem from './rem'
 
+/**
+ * convert css style object to class name
+ * also, using rem function that convert all px value to rem
+ * @param {object} styles
+ * @returns
+ */
+// const styler = (styles) =>
+//   Object.keys(styles).reduce((result, key) => {
+//     const val = styles[key]
+//     if (typeof val === 'function') {
+//       result[key] = (props) =>
+//         css`
+//           ${val(props)}
+//         `
+//     } else {
+//       result[key] = css`
+//         ${rem(val)}
+//       `
+//     }
+//   }, {})
+
 const styler = (styles) => {
   const wrappedStyles = {}
   const names = Object.keys(styles)

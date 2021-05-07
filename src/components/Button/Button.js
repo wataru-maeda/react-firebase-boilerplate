@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler } from 'theme'
+import { styler } from 'styles'
 // import Spinner from '../Spinner'
 import './button.scss'
 
