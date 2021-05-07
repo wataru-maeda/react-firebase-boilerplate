@@ -1,29 +1,8 @@
-@import './index';
+@import './styles/abstracts';
 
 * {
   font-family: 'Open Sans', sans-serif;
 }
-
-// @media (max-width: 1440px) and (min-width: 1081px) {
-//   /* HD only */
-//   html {
-//     font-size: 1.11vw; /* 16px at 1440px */
-//   }
-// }
-
-// @media (max-width: 1080px) and (min-width: 701px) {
-//   /* Desktop only */
-//   html {
-//     font-size: 1.48vw; /* 16px at 1080px */
-//   }
-// }
-
-// @media (max-width: 700px) {
-//   /* Mobile sizes */
-//   html {
-//     font-size: 2.28; /* 16px at 700px */
-//   }
-// }
 
 html {
   @include phone {
