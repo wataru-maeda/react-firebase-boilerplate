@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 const Auth = Loadable({
   loader: () => import('./scenes/auth'),
-  loading: () => <div />,
+  loading: () => <p>Loading...</p>,
 })
 
 function Router() {
