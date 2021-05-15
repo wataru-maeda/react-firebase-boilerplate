@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import NProgress from 'nprogress'
 
 const Auth = Loadable({
   loader: () => import('./scenes/auth'),
@@ -8,6 +9,10 @@ const Auth = Loadable({
 })
 
 function Router() {
+  NProgress.start()
+  useEffect(() => {
+    NProgress.done()
+  }, [])
   return (
     <BrowserRouter>
       <Switch>
