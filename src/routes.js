@@ -1,24 +1,18 @@
-import React, { useEffect } from 'react'
-import Loadable from 'react-loadable'
+import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import NProgress from 'nprogress'
+import Fallback from 'components/Fallback'
 
-const Auth = Loadable({
-  loader: () => import('./scenes/auth'),
-  loading: () => <p>Loading...</p>,
-})
+const Auth = React.lazy(() => import('./scenes/auth'))
 
 function Router() {
-  NProgress.start()
-  useEffect(() => {
-    NProgress.done()
-  }, [])
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Auth} />
-        <Redirect to="/" />
-      </Switch>
+      <Suspense fallback={<Fallback />}>
+        <Switch>
+          <Route path="/" component={Auth} />
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
     </BrowserRouter>
   )
 }
