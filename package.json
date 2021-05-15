@@ -12,6 +12,8 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-spinners": "^0.10.6",
     "reactstrap": "^8.9.0",
