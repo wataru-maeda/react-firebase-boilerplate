@@ -28,7 +28,6 @@ const styles = styler({
 })
 
 const Input = ({
-  id,
   label,
   type,
   name,
@@ -49,7 +48,6 @@ const Input = ({
       {label && <b className={styles.label}>{label}</b>}
       <div className={styles.container}>
         <input
-          id={id}
           value={value}
           type={type}
           name={name}
@@ -72,7 +70,6 @@ const Input = ({
 }
 
 Input.propTypes = {
-  id: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.oneOfType([null, PropTypes.string]),
   name: PropTypes.string,
@@ -88,7 +85,6 @@ Input.propTypes = {
 }
 
 Input.defaultProps = {
-  id: '',
   type: 'text',
   label: null,
   name: '',
