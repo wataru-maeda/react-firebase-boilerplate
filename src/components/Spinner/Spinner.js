@@ -1,4 +1,5 @@
-import { ClipLoader, BeatLoader } from 'react-spinners'
+import { ClipLoader } from 'react-spinners'
+import { PropTypes } from 'prop-types'
 
 /**
  * types of spinners
@@ -8,22 +9,20 @@ import { ClipLoader, BeatLoader } from 'react-spinners'
  * https://github.com/davidhu2000/react-spinners
  */
 
-const Spinner = ({
-  type = 'clip',
-  color = 'black',
-  size = '1.5rem',
-  isLoading = false,
-  ...others
-}) => {
-  const props = { type, color, size, loading: isLoading, ...others }
-  switch (type) {
-    case 'clip':
-      return <ClipLoader {...props} />
-    case 'beat':
-      return <BeatLoader {...props} />
-    default:
-      return <ClipLoader {...props} />
-  }
+const Spinner = ({ color, size, isLoading, ...others }) => (
+  <ClipLoader color={color} size={size} loading={isLoading} {...others} />
+)
+
+Spinner.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.string,
+  isLoading: PropTypes.bool,
+}
+
+Spinner.defaultProps = {
+  color: 'black',
+  size: '1.5rem',
+  isLoading: false,
 }
 
 export default Spinner
