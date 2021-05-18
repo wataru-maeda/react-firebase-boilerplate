@@ -102,11 +102,10 @@ a {
   font-family: 'Open Sans', sans-serif;
   text-decoration: underline;
   color: var(--green);
-}
-
-a:hover {
-  color: var(--darkGreen);
-  transition: color 0.3s;
+  &:hover {
+    color: var(--darkGreen);
+    transition: color 0.3s;
+  }
 }
 
 ol[type='1'] {

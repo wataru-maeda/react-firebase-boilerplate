@@ -1,17 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler } from 'theme'
+import Spinner from 'components/Spinner'
 import './button.scss'
-
-import Spinner from '../Spinner'
-
-const styles = styler({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
 
 const Button = ({
   type,
@@ -26,7 +16,7 @@ const Button = ({
 }) => (
   <button
     type="button"
-    className={`${styles.root} ${className}`}
+    className={className}
     style={style}
     onClick={onClick}
     disabled={disabled || isLoading}
