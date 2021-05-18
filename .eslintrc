@@ -19,6 +19,7 @@
     "react/state-in-constructor": "off",
     "no-async-promise-executor": "off",
     "no-return-assign": "off",
+    "import/no-named-as-default-member": "off",
     "import/prefer-default-export": 0,
     "react/react-in-jsx-scope": "off"
   },
