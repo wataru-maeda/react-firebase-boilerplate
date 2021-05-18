@@ -9,7 +9,7 @@ Primary.args = {
 }
 
 export default {
-  title: 'Example/Spinner',
+  title: 'Components/Spinner',
   component: Spinner,
   argTypes: {
     color: { control: 'color' },
