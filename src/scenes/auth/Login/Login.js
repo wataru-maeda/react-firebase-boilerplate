@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { actions, selector } from 'stores/app.store'
+import { actions } from 'slices/app.slice'
 import styles from './login.module.scss'
 
 function Login() {
   const dispatch = useDispatch()
-  const { loggedIn } = useSelector(selector)
+  const { loggedIn } = useSelector((state) => state.app)
   console.log('[##] loggedin', loggedIn)
   return (
     <div className={styles.root}>
       <button
         type="button"
         onClick={() => {
-          console.log('[##] okokok')
           dispatch(actions.setLoginAsync())
         }}
       >

@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import app from 'stores/app.store'
+import app from 'slices/app.slice'
 
 const store = configureStore({
   reducer: {
