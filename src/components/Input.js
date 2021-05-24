@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'theme'
-import './input.scss'
+// import { styler, colors } from 'theme'
+import 'theme/components/input.scss'
 
-const styles = styler({
+const styles = {
   container: {
     position: 'relative',
     marginBottom: 16,
@@ -16,7 +16,7 @@ const styles = styler({
     fontSize: 16,
     '&::placeholder': {
       textOverflow: 'ellipsis !important',
-      color: colors.lightGray,
+      // color: colors.lightGray,
       fontSize: 16,
     },
   },
@@ -25,7 +25,7 @@ const styles = styler({
     borderBottom: '1px solid black',
     width: '100%',
   },
-})
+}
 
 const Input = ({
   label,

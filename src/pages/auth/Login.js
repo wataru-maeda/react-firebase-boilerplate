@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { actions } from 'slices/app.slice'
-import styles from './login.module.scss'
+import styles from 'theme/pages/auth/login.module.scss'
 
 function Login() {
   const dispatch = useDispatch()

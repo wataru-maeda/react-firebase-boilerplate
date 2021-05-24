@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Spinner from 'components/Spinner'
-import './button.scss'
+import 'theme/components/button.scss'
+import Spinner from './Spinner'
 
 const Button = ({
   type,

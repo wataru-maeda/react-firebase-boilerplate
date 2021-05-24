@@ -1,4 +1,4 @@
-import '!style-loader!css-loader!sass-loader!../src/theme/base.scss'
+import '!style-loader!css-loader!sass-loader!../src/theme/app.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const parameters = {

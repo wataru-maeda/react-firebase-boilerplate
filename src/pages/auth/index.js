@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { path } from 'utils/const'
-import styles from './auth.module.scss'
+import styles from 'theme/pages/auth/auth.module.scss'
 
 import Login from './Login'
 

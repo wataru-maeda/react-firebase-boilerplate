@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Fallback from 'components/Fallback'
 
-const Auth = React.lazy(() => import('./scenes/auth'))
+const Auth = React.lazy(() => import('./pages/auth'))
 
 function Router() {
   return (
