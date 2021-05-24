@@ -15,20 +15,18 @@ $color-black: #333a41;
  * ----------------------------------------
  */
 
-$font-stack: Helvetica, sans-serif;
-$font-main: '';
-$font-sub: '';
+$font-roboto: 'Roboto';
+$font-open-san: 'Open Sans';
 
 /**
  * ----------------------------------------
  * Breakpoints
- * ----------------------------------------
+ * ----------------------------------------Â
  */
 
-$breakpoint-phone: 576px;
-$breakpoint-tablet: 768px;
-$breakpoint-laptop: 992px;
-$breakpoint-desktop: 1280px;
+$breakpoint-phone: 576;
+$breakpoint-tablet: 768;
+$breakpoint-laptop: 1200;
 
 /**
  * ----------------------------------------

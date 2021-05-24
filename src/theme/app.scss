@@ -1,8 +1,10 @@
 @import './core';
 
-* {
-  font-family: 'Open Sans', sans-serif;
-}
+/**
+ * ----------------------------------------
+ * Base Styles
+ * ----------------------------------------
+ */
 
 html {
   @include phone {
@@ -14,26 +16,31 @@ html {
   }
 
   @include desktop {
-    font-size: 1.61vw; /* 16px at 992px */
+    font-size: 1.33vw; /* 16px at 1200px */
   }
 
   @include laptop {
-    font-size: 1.25vw; /* 16px at 1280px */
+    font-size: 1.14vw; /* 16px at 1400px */
   }
 }
 
 body {
-  color: var(--darkGray);
+  font-family: $font-roboto, $font-open-san, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-roboto, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -56,75 +63,36 @@ h4 {
 }
 
 button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-}
-
-button:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-button:disabled,
-button[disabled] {
-  opacity: 0.6;
-}
-
-p {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
   padding: 0;
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-
-th,
-td {
-  padding: 15px;
-  text-align: justify;
-  font-size: 12px;
-}
-
-td.center {
-  text-align: center;
-}
-
-th {
-  background-color: #038f89;
-  color: white;
-  text-align: center;
-}
-
-a {
-  font-family: 'Open Sans', sans-serif;
-  text-decoration: underline;
-  color: var(--green);
-  &:hover {
-    color: var(--darkGreen);
-    transition: color 0.3s;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  appearance: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &:disabled {
+    opacity: 0.6;
   }
 }
 
-ol[type='1'] {
-  counter-reset: item;
+p {
+  font-family: $font-open-san, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-ol[type='1'] > li {
-  counter-increment: item;
-}
-
-ol[type='1'] ol[type='1'] > li {
-  display: block;
-}
-
-ol[type='1'] ol[type='1'] > li:before {
-  content: counters(item, '.') '. ';
-  margin-left: -20px;
-}
-
-.carousel-item {
-  transition: transform 0.3s ease-in-out !important;
+a {
+  font-family: $font-open-san, sans-serif;
+  text-decoration: underline;
+  color: $color-purple;
+  &:hover {
+    color: $color-pink;
+    transition: color 0.3s;
+  }
 }
 
 textarea:focus,

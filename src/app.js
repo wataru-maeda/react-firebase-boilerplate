@@ -5,7 +5,9 @@ import Router from './routes'
 function App() {
   return (
     <Provider store={store}>
-      <Router />
+      <div data-testid="app" className="app">
+        <Router />
+      </div>
     </Provider>
   )
 }

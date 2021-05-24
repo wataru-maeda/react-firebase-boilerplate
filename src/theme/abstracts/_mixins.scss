@@ -7,25 +7,25 @@
  */
 
 @mixin phone {
-  @media (max-width: #{$breakpoint-phone}) {
+  @media (max-width: #{$breakpoint-phone + 'px'}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (max-width: #{$breakpoint-tablet}) {
+  @media (min-width: #{$breakpoint-phone + 1 + 'px'}) and (max-width: #{$breakpoint-tablet}) {
     @content;
   }
 }
 
 @mixin laptop {
-  @media (max-width: #{$breakpoint-laptop}) {
+  @media (min-width: #{$breakpoint-tablet + 1 + 'px'}) and (max-width: #{$breakpoint-laptop}) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (max-width: #{$breakpoint-desktop}) {
+  @media (min-width: #{$breakpoint-laptop + 1 + 'px'}) {
     @content;
   }
 }
