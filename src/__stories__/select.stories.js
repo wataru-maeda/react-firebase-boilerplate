@@ -2,8 +2,8 @@ import Select from 'components/Select'
 
 const Template = (args) => <Select {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Basic = Template.bind({})
+Basic.args = {
   label: 'STATUS',
   name: 'status',
   value: null,
@@ -13,7 +13,4 @@ Primary.args = {
 export default {
   title: 'Components/Select',
   component: Select,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 }

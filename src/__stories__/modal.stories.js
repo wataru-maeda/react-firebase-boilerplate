@@ -5,7 +5,7 @@ const Template = (args) => <Modal {...args} />
 export const Basic = Template.bind({})
 Basic.args = {
   isOpen: true,
-  children: <h2>Modal</h2>,
+  children: <h4>Modal</h4>,
   centered: true,
   size: 'md',
 }
@@ -13,7 +13,4 @@ Basic.args = {
 export default {
   title: 'Components/Modal',
   component: Modal,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 }

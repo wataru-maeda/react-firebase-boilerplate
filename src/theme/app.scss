@@ -39,27 +39,13 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: $roboto, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1rem;
 }
 
 button {
@@ -111,9 +97,8 @@ input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
 .uneditable-input:focus {
-  border-color: var(--lightYellowAlpha);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
-    0 0 8px var(--lightYellowAlpha);
+  border-color: $light-purple;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $light-purple;
   outline: 0 none;
 }
 
@@ -124,6 +109,6 @@ input::-webkit-input-placeholder {
 }
 
 input:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px var(--lightLightYellowAlpha) inset;
+  box-shadow: 0 0 0px 1000px $light-purple inset;
   transition: background-color 5000s ease-in-out 0s;
 }
