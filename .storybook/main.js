@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = {
   stories: [
-    '../src/__stories__/*.stories.mdx',
-    '../src/__stories__/*.stories.@(js|jsx|ts|tsx)',
+    '../src/stories/*.stories.mdx',
+    '../src/stories/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
@@ -17,13 +17,4 @@ module.exports = {
     ]
     return config
   },
-  // webpackFinal: (webpackConfig) => {
-  //   const scopePluginIndex = webpackConfig.resolve.plugins.findIndex(
-  //     ({ constructor }) =>
-  //       constructor && constructor.name === 'ModuleScopePlugin',
-  //   )
-
-  //   webpackConfig.resolve.plugins.splice(scopePluginIndex, 1)
-  //   return webpackConfig
-  // },
 }
