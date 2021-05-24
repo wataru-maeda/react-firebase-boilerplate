@@ -1,31 +1,13 @@
 @import '../core';
 
 .btn-black-fill {
-  color: white;
-  background-color: $color-black;
-  transition: background-color 0.3s, color 0.3s;
-  box-shadow: 0 3px 7px 1px rgba(0, 0, 0, 0.1);
-  &:hover {
-    background: lighten($color-black, 10%);
-    transition: all 0.3s ease;
-  }
-  &:active {
-    background: lighten($color-black, 10%);
-  }
+  @include button-fill($dark-gray);
 }
 
 .btn-black-outline {
-  border: 1px solid $color-black;
-  background-color: white;
-  color: $color-black;
-  border-radius: 3px;
-  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-  box-shadow: 0 3px 7px 1px rgba(0, 0, 0, 0.1);
-  &:hover {
-    background: lighten($color-black, 10%);
-    transition: all 0.3s ease;
-  }
-  &:active {
-    background: lighten($color-black, 10%);
-  }
+  @include button-outline($dark-gray);
+}
+
+.btn-pink-fill {
+  @include button-fill($pink);
 }

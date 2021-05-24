@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: $font-roboto, $font-open-san, sans-serif;
+  font-family: $roboto, $open-san, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -40,7 +40,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: $font-roboto, sans-serif;
+  font-family: $roboto, sans-serif;
   font-weight: 700;
   padding: 0;
   margin: 0;
@@ -80,17 +80,17 @@ button {
 }
 
 p {
-  font-family: $font-open-san, sans-serif;
+  font-family: $open-san, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 a {
-  font-family: $font-open-san, sans-serif;
+  font-family: $open-san, sans-serif;
   text-decoration: underline;
-  color: $color-purple;
+  color: $purple;
   &:hover {
-    color: $color-pink;
+    color: $pink;
     transition: color 0.3s;
   }
 }

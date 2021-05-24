@@ -7,10 +7,22 @@ Basic.args = {
   label: 'Button',
 }
 
-export const Black = Template.bind({})
-Black.args = {
+export const BlackFill = Template.bind({})
+BlackFill.args = {
   label: 'Button',
   className: 'btn-black-fill',
+}
+
+export const PinkFill = Template.bind({})
+PinkFill.args = {
+  label: 'Button',
+  className: 'btn-pink-fill',
+}
+
+export const BlackOutline = Template.bind({})
+BlackOutline.args = {
+  label: 'Button',
+  className: 'btn-black-outline',
 }
 
 export default {

@@ -4,10 +4,10 @@
  * ----------------------------------------
  */
 
-$color-red: #ff4956;
-$color-pink: #ff3b86;
-$color-purple: #9d7fe3;
-$color-black: #333a41;
+$red: #ff4956;
+$pink: #ff3b86;
+$purple: #9d7fe3;
+$dark-gray: #333a41;
 
 /**
  * ----------------------------------------
@@ -15,8 +15,8 @@ $color-black: #333a41;
  * ----------------------------------------
  */
 
-$font-roboto: 'Roboto';
-$font-open-san: 'Open Sans';
+$roboto: 'Roboto';
+$open-san: 'Open Sans';
 
 /**
  * ----------------------------------------
@@ -24,17 +24,6 @@ $font-open-san: 'Open Sans';
  * ----------------------------------------Â
  */
 
-$breakpoint-phone: 576;
-$breakpoint-tablet: 768;
-$breakpoint-laptop: 1200;
-
-/**
- * ----------------------------------------
- * Spacers
- * ----------------------------------------
- */
-
-$spacer: 1rem !default;
-$spacer-small: $spacer * 1;
-$spacer-medium: $spacer * 2;
-$spacer-large: $spacer * 3;
+$phone: 576;
+$tablet: 768;
+$laptop: 1200;

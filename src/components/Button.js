@@ -4,14 +4,13 @@ import 'theme/components/button.scss'
 import Spinner from './Spinner'
 
 const Button = ({
-  type,
-  label,
   className,
   style,
+  label,
   onClick,
-  children,
-  disabled,
   isLoading,
+  disabled,
+  children,
   ...others
 }) => (
   <button
