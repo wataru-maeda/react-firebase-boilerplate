@@ -21,4 +21,24 @@
 
 .submitButton {
   height: rem(48);
+  margin-bottom: rem(32);
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+}
+
+.linkButton {
+  margin-left: rem(4);
+  text-decoration: underline;
+  color: $purple;
 }

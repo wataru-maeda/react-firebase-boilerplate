@@ -20,6 +20,14 @@ function Login() {
           dispatch(actions.setLoginAsync())
         }}
       />
+      <div className={styles.footerContainer}>
+        <div className={styles.textContainer}>
+          New user? <Button label="Sign up" className={styles.linkButton} />
+        </div>
+        <div className={styles.textContainer}>
+          Forget <Button label="Password" className={styles.linkButton} />?
+        </div>
+      </div>
     </div>
   )
 }
