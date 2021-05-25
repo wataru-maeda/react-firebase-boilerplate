@@ -4,6 +4,7 @@ import images from 'assets/images'
 import { path } from 'utils/const'
 import styles from 'theme/pages/auth.module.scss'
 import Login from './Login'
+import Signup from './Signup'
 
 function Auth() {
   return (
@@ -22,8 +23,8 @@ function Auth() {
       <div className={styles.container}>
         <Switch>
           <Route path={path.login} component={Login} />
-          {/* <Route path={path.signup} component={Signup} />
-        <Route path={path.profile} component={Profile} />
+          <Route path={path.signup} component={Signup} />
+          {/* <Route path={path.profile} component={Profile} />
         <Route path={path.confirmEmail} component={ConfirmEmail} />
         <Route path={path.resetPassword} component={ResetPassword} /> */}
           <Redirect to={path.login} />

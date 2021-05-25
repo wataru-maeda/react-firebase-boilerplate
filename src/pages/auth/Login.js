@@ -1,11 +1,13 @@
 import { useState } from 'react'
+import { PropTypes } from 'prop-types'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
 import validate, { tests } from 'utils/validate'
 import styles from 'theme/pages/login.module.scss'
+import { path } from 'utils/const'
 
-function Login() {
+function Login({ history }) {
   // ------------------------------------
   // State
   // ------------------------------------
@@ -54,6 +56,7 @@ function Login() {
       <Input
         label="Email"
         name="email"
+        placeholder="email@example.com"
         value={input.email}
         onChange={handleOnChange}
         onKeyDown={(e) => {
@@ -65,6 +68,7 @@ function Login() {
         type="password"
         label="Password"
         name="password"
+        placeholder="password1234"
         value={input.password}
         onChange={handleOnChange}
         onKeyDown={(e) => {
@@ -81,7 +85,12 @@ function Login() {
       />
       <div className={styles.footerContainer}>
         <div className={styles.textContainer}>
-          New user? <Button label="Sign up" className={styles.linkButton} />
+          New user?{' '}
+          <Button
+            label="Sign up"
+            className={styles.linkButton}
+            onClick={() => history.push(path.signup)}
+          />
         </div>
         <div className={styles.textContainer}>
           Forget <Button label="Password" className={styles.linkButton} />?
@@ -91,7 +100,15 @@ function Login() {
   )
 }
 
-Login.propTypes = {}
-Login.defaultProps = {}
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+}
+Login.defaultProps = {
+  history: {
+    push: () => null,
+  },
+}
 
 export default Login
