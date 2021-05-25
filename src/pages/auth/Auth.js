@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import images from 'assets/images'
 import { path } from 'utils/const'
-import styles from 'theme/pages/auth/auth.module.scss'
+import styles from 'theme/pages/auth.module.scss'
 import Login from './Login'
 
 function Auth() {
