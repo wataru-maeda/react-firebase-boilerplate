@@ -11,7 +11,7 @@ function Auth() {
       <div className={styles.container}>
         <img src={images.logo} className={styles.logo} alt="logo" />
         <h1 className={styles.header}>👋 React Firebase Boilerplate</h1>
-        <p className={styles.title}>What’s in this🤔?</p>
+        <p className={styles.title}>What’s includes?</p>
         <p className={styles.description}>
           Firebase Authentication | Firebase Hosting | Firestore | Firebase
           Storage | Storybook | Prettier | Eslint | Jest | Bundle Analizer |

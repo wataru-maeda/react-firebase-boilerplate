@@ -22,7 +22,7 @@ const Button = ({
     {...others}
   >
     {isLoading ? (
-      <Spinner color="white" />
+      <Spinner color="white" isLoading />
     ) : (
       <>
         {label}

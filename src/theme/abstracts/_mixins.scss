@@ -55,6 +55,10 @@
  */
 
 @mixin button-fill($color) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   color: white;
   background-color: $color;
   transition: background-color 0.3s, color 0.3s;
@@ -71,6 +75,10 @@
 }
 
 @mixin button-outline($color) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   border: 1px solid $color;
   background-color: white;
   color: $color;
