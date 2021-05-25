@@ -16,8 +16,8 @@ body.viewport-lg {
   -webkit-transition: height 0.3 linear;
 }
 
-.modal-lmd {
-  min-width: rem(600);
+.modal-responsive {
+  max-width: rem(600);
   @include phone {
     min-width: auto;
     width: 100%;

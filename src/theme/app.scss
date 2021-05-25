@@ -104,7 +104,7 @@ input[type='color']:focus,
 
 input::-webkit-input-placeholder {
   text-overflow: 'ellipsis !important';
-  color: var(--lightGray);
+  color: $gray;
   font-size: 14px;
 }
 
