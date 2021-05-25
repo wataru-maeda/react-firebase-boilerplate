@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
+import Input from 'components/Input'
+import Button from 'components/Button'
 import { actions } from 'slices/app.slice'
 import styles from 'theme/pages/auth/login.module.scss'
 
@@ -8,14 +10,16 @@ function Login() {
   console.log('[##] loggedin', loggedIn)
   return (
     <div className={styles.root}>
-      <button
-        type="button"
+      <h2 className={styles.title}>Login</h2>
+      <Input label="Email" />
+      <Input label="Password" />
+      <Button
+        label="Login"
+        className={`btn-black-fill ${styles.submitButton}`}
         onClick={() => {
           dispatch(actions.setLoginAsync())
         }}
-      >
-        Tap Me
-      </button>
+      />
     </div>
   )
 }

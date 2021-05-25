@@ -1,10 +1,9 @@
 /**
  * ----------------------------------------
  * Colors
- * ----------------------------------------
+ * -$pinkp----------------------------------
  */
 
-$red: #ff4956;
 $pink: #ff3b86;
 $light-pink: #fcb8d2;
 
@@ -14,6 +13,8 @@ $light-purple: #c3b6e2;
 $gray: #cacaca;
 $dark-gray: #333a41;
 $light-gray: #f7f9fc;
+
+$gradient-pink-purple: linear-gradient(125.07deg, $pink 0%, $purple 66.18%);
 
 /**
  * ----------------------------------------
@@ -32,4 +33,4 @@ $open-san: 'Open Sans';
 
 $phone: 576;
 $tablet: 768;
-$laptop: 1200;
+$laptop: 1152;
