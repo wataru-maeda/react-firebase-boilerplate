@@ -3,21 +3,22 @@ import { PropTypes } from 'prop-types'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
+import SentResetPassword from 'subviews/auth/SentResetPassword'
 import validate, { tests } from 'utils/validate'
-import styles from 'theme/pages/login.module.scss'
+import styles from 'theme/pages/resetPassword.module.scss'
 import { path } from 'utils/const'
 
-function Login({ history }) {
+function ResetPassword({ history }) {
   // ------------------------------------
   // State
   // ------------------------------------
   const [input, setInput] = useState({
     email: '',
-    password: '',
   })
   const [error, setError] = useState({})
   const [resErr, setResError] = useState('')
   const [isLoading, setLoading] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   // ------------------------------------
   // Handlers
@@ -34,10 +35,10 @@ function Login({ history }) {
     setError(result.errors)
     if (result.isError) return
 
-    // login action
+    // ResetPassword action
     setLoading(true)
     // actions
-    //   .login(input.email, input.password)
+    //   .ResetPassword(input.email, input.password)
     //   .then((user) => {
     //     onFinish(user)
     //     setLoading(false)
@@ -52,69 +53,51 @@ function Login({ history }) {
   return (
     <div className={styles.root}>
       {resErr && <ErrorBox>{resErr}</ErrorBox>}
-      <h2 className={styles.title}>Login</h2>
+      <h2 className={styles.title}>Reset Password</h2>
       <Input
         label="Email"
         name="email"
         placeholder="email@example.com"
         value={input.email}
         onChange={handleOnChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleSubmit()
-        }}
         error={error.email}
-      />
-      <Input
-        type="password"
-        label="Password"
-        name="password"
-        placeholder="password1234"
-        value={input.password}
-        onChange={handleOnChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleSubmit()
-        }}
-        error={error.password}
       />
       <br />
       <Button
-        label="Login"
+        label="Reset Password"
         className={`btn-black-fill ${styles.submitButton}`}
         onClick={handleSubmit}
         isLoading={isLoading}
       />
       <div className={styles.footerContainer}>
         <div className={styles.textContainer}>
-          New user?{' '}
+          Back to{' '}
           <Button
-            label="Sign up"
+            label="Log in"
             className={styles.linkButton}
-            onClick={() => history.push(path.signup)}
+            onClick={() => history.push(path.login)}
           />
         </div>
-        <div className={styles.textContainer}>
-          Forget{' '}
-          <Button
-            label="Password"
-            className={styles.linkButton}
-            onClick={() => history.push(path.resetPassword)}
-          />
-          ?
-        </div>
+        <span />
       </div>
+      <SentResetPassword
+        isOpen={isOpen}
+        toggle={() => setOpen((prev) => !prev)}
+      />
     </div>
   )
 }
 
-Login.propTypes = {
+ResetPassword.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }),
 }
-Login.defaultProps = {
+
+ResetPassword.defaultProps = {
   history: {
     push: () => null,
   },
 }
 
-export default Login
+export default ResetPassword

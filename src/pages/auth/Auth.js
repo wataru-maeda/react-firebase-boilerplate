@@ -5,6 +5,7 @@ import { path } from 'utils/const'
 import styles from 'theme/pages/auth.module.scss'
 import Login from './Login'
 import Signup from './Signup'
+import ResetPassword from './ResetPassword'
 
 function Auth() {
   return (
@@ -24,9 +25,9 @@ function Auth() {
         <Switch>
           <Route path={path.login} component={Login} />
           <Route path={path.signup} component={Signup} />
+          <Route path={path.resetPassword} component={ResetPassword} />
           {/* <Route path={path.profile} component={Profile} />
-        <Route path={path.confirmEmail} component={ConfirmEmail} />
-        <Route path={path.resetPassword} component={ResetPassword} /> */}
+        <Route path={path.confirmEmail} component={ConfirmEmail} /> */}
           <Redirect to={path.login} />
         </Switch>
       </div>

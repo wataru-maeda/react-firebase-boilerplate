@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
+import ConfirmEmail from 'subviews/auth/ConfirmEmail'
 import validate, { tests } from 'utils/validate'
 import styles from 'theme/pages/signup.module.scss'
 import { path } from 'utils/const'
@@ -28,6 +29,7 @@ function Signup({ history }) {
   const [error, setError] = useState({})
   const [resErr, setResError] = useState('')
   const [isLoading, setLoading] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   // ------------------------------------
   // Handlers
@@ -123,9 +125,20 @@ function Signup({ history }) {
           />
         </div>
         <div className={styles.textContainer}>
-          Forget <Button label="Password" className={styles.linkButton} />?
+          Forget{' '}
+          <Button
+            label="Password"
+            className={styles.linkButton}
+            onClick={() => history.push(path.resetPassword)}
+          />
+          ?
         </div>
       </div>
+      <ConfirmEmail
+        email={input.email}
+        isOpen={isOpen}
+        toggle={() => setOpen((prev) => !prev)}
+      />
     </div>
   )
 }
