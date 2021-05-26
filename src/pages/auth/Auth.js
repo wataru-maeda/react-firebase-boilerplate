@@ -10,7 +10,7 @@ import ResetPassword from './ResetPassword'
 function Auth() {
   return (
     <div className={styles.root}>
-      <div className={styles.container}>
+      <div className={styles.leftContainer}>
         <img src={images.logo} className={styles.logo} alt="logo" />
         <h1 className={styles.header}>👋 React Firebase Boilerplate</h1>
         <p className={styles.title}>What’s includes?</p>
@@ -21,7 +21,7 @@ function Auth() {
         </p>
         <p className={styles.prompt}>Try it and check how it works 👉</p>
       </div>
-      <div className={styles.container}>
+      <div className={styles.rightContainer}>
         <Switch>
           <Route path={path.login} component={Login} />
           <Route path={path.signup} component={Signup} />

@@ -7,19 +7,13 @@
  */
 
 html {
+  font-size: 16px; /* base font size */
+
   @include phone {
     font-size: 2.78vw; /* 16px at 576px */
   }
 
-  @include tablet {
-    font-size: 2.08vw; /* 16px at 768px */
-  }
-
-  @include laptop {
-    font-size: 1.38vw; /* 16px at 1152px */
-  }
-
-  @include desktop {
+  @include desktop-or-more {
     font-size: 1.11vw; /* 16px at 1440px */
   }
 }

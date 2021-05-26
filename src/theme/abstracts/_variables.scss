@@ -38,6 +38,13 @@ $open-san: 'Open Sans';
  * ----------------------------------------Â
  */
 
-$phone: 576;
-$tablet: 768;
-$laptop: 1152;
+$phone-min: 0;
+$phone-max: 575;
+
+$tablet-min: 576;
+$tablet-max: 767;
+
+$laptop-min: 768;
+$laptop-max: 1339;
+
+$desktop-min: 1340;

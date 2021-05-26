@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Button from 'components/Button'
 import { actions } from 'slices/app.slice'
 import styles from 'theme/pages/dashboard.module.scss'
@@ -7,11 +7,12 @@ import images from 'assets/images'
 
 function Dashboard() {
   const dispatch = useDispatch()
+  const { me } = useSelector((state) => state.app)
   return (
     <div className={styles.root}>
-      {/* <TopNavigation /> */}
-      <div className={styles.main}>
+      <div className={styles.container}>
         <img src={images.logo} className={styles.logo} alt="logo" />
+        <h3 className={styles.greeting}>{`Hi👋, ${me?.fullName || 'User'}`}</h3>
         <h1 className={styles.title}>React + Firebase Boilerplate</h1>
         <p className={styles.description}>
           This is
