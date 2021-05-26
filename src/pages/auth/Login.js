@@ -47,6 +47,7 @@ function Login({ history }) {
       const user = await dispatch(actions.login(input))
       if (!user.emailVerified) setOpen(true)
       setLoading(false)
+      setResError('')
     } catch (err) {
       setLoading(false)
       setResError(err.message)

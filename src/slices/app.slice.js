@@ -36,16 +36,33 @@ const slice = createSlice({
 // Actions
 // -----------------------------------
 
-const authenticate = () => (dispatch) =>
-  auth.onAuthStateChanged((me) =>
-    dispatch(
+export const authenticate = () => (dispatch) => {
+  auth.onAuthStateChanged(async (me) => {
+    if (!me) {
+      return dispatch(
+        slice.actions.setMe({
+          loggedIn: false,
+          checked: true,
+          me: {},
+        }),
+      )
+    }
+
+    // get user from firestore
+    const user = await firestore.collection('users').doc(me?.uid).get()
+
+    // login
+    return dispatch(
       slice.actions.setMe({
-        loggedIn: !!(me && me.emailVerified && me.displayName),
-        me: me || {},
+        loggedIn: me?.emailVerified && user.exists,
+        me: user.exists
+          ? { id: me?.uid, emailVerified: me?.emailVerified, ...user.data() }
+          : {},
         checked: true,
       }),
-    ),
-  )
+    )
+  })
+}
 
 const signup = ({ fullName, email, password }) => () =>
   new Promise(async (resolve, reject) => {
@@ -63,8 +80,6 @@ const signup = ({ fullName, email, password }) => () =>
       await firestore.collection('users').doc(user.uid).set({
         fullName,
         email,
-        updatedAt: new Date(),
-        createdAt: new Date(),
       })
 
       resolve(user)
@@ -92,9 +107,9 @@ const logout = () => (dispatch) =>
       await auth.signOut()
       dispatch(
         slice.actions.setMe({
-          me: {},
           checked: true,
           loggedIn: false,
+          me: {},
         }),
       )
       resolve()
