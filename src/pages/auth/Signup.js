@@ -6,6 +6,8 @@ import ErrorBox from 'components/ErrorBox'
 import ConfirmEmail from 'subviews/auth/ConfirmEmail'
 import validate, { tests } from 'utils/validate'
 import styles from 'theme/pages/signup.module.scss'
+import { useDispatch } from 'react-redux'
+import { actions } from 'slices/app.slice'
 import { path } from 'utils/const'
 
 const customTests = {
@@ -17,6 +19,8 @@ const customTests = {
 }
 
 function Signup({ history }) {
+  const dispatch = useDispatch()
+
   // ------------------------------------
   // State
   // ------------------------------------
@@ -55,19 +59,19 @@ function Signup({ history }) {
       return
     }
 
-    // Signup action
+    // signup action
     setLoading(true)
-    // actions
-    //   .Signup(input.email, input.password)
-    //   .then((user) => {
-    //     onFinish(user)
-    //     setLoading(false)
-    //     setResError('')
-    //   })
-    //   .catch((err) => {
-    //     setResError(err.message)
-    //     setLoading(false)
-    //   })
+
+    try {
+      const user = await dispatch(actions.signup(input))
+      console.log('[##] user', user)
+      setOpen(true)
+      setLoading(false)
+      setResError('')
+    } catch (err) {
+      setResError(err.message)
+      setLoading(false)
+    }
   }
 
   return (
@@ -102,7 +106,7 @@ function Signup({ history }) {
       <Input
         type="password"
         label="Confirm Password"
-        name="password"
+        name="confirmPassword"
         placeholder="password1234"
         value={input.confirmPassword}
         onChange={handleOnChange}
