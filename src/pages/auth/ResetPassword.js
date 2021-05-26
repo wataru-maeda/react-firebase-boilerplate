@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import { PropTypes } from 'prop-types'
+import { useDispatch } from 'react-redux'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
 import SentResetPassword from 'subviews/auth/SentResetPassword'
 import validate, { tests } from 'utils/validate'
+import { actions } from 'slices/app.slice'
 import styles from 'theme/pages/resetPassword.module.scss'
 import { path } from 'utils/const'
 
 function ResetPassword({ history }) {
+  const dispatch = useDispatch()
+
   // ------------------------------------
   // State
   // ------------------------------------
@@ -35,19 +39,17 @@ function ResetPassword({ history }) {
     setError(result.errors)
     if (result.isError) return
 
-    // ResetPassword action
     setLoading(true)
-    // actions
-    //   .ResetPassword(input.email, input.password)
-    //   .then((user) => {
-    //     onFinish(user)
-    //     setLoading(false)
-    //     setResError('')
-    //   })
-    //   .catch((err) => {
-    //     setResError(err.message)
-    //     setLoading(false)
-    //   })
+
+    try {
+      await dispatch(actions.resetPassword(input.email))
+      setOpen(true)
+      setResError('')
+      setLoading(false)
+    } catch (err) {
+      setResError(err.message)
+      setLoading(false)
+    }
   }
 
   return (
@@ -81,8 +83,13 @@ function ResetPassword({ history }) {
         <span />
       </div>
       <SentResetPassword
+        email={input.email}
         isOpen={isOpen}
         toggle={() => setOpen((prev) => !prev)}
+        onSubmit={() => {
+          history.push(path.login)
+          setOpen((prev) => !prev)
+        }}
       />
     </div>
   )

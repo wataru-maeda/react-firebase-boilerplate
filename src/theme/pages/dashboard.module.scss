@@ -37,12 +37,12 @@
   height: rem(160);
 }
 
-.buttons {
+.buttonContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  max-width: rem(400);
+  max-width: rem(480);
   margin-top: rem(120);
 }
 

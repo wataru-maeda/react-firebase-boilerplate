@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import { PropTypes } from 'prop-types'
+import { useDispatch } from 'react-redux'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
+import ConfirmEmail from 'subviews/auth/ConfirmEmail'
 import validate, { tests } from 'utils/validate'
 import styles from 'theme/pages/login.module.scss'
+import { actions } from 'slices/app.slice'
 import { path } from 'utils/const'
 
 function Login({ history }) {
+  const dispatch = useDispatch()
+
   // ------------------------------------
   // State
   // ------------------------------------
@@ -17,6 +22,7 @@ function Login({ history }) {
   })
   const [error, setError] = useState({})
   const [resErr, setResError] = useState('')
+  const [isOpen, setOpen] = useState(false)
   const [isLoading, setLoading] = useState(false)
 
   // ------------------------------------
@@ -36,17 +42,15 @@ function Login({ history }) {
 
     // login action
     setLoading(true)
-    // actions
-    //   .login(input.email, input.password)
-    //   .then((user) => {
-    //     onFinish(user)
-    //     setLoading(false)
-    //     setResError('')
-    //   })
-    //   .catch((err) => {
-    //     setResError(err.message)
-    //     setLoading(false)
-    //   })
+
+    try {
+      const user = await dispatch(actions.login(input))
+      if (!user.emailVerified) setOpen(true)
+      setLoading(false)
+    } catch (err) {
+      setLoading(false)
+      setResError(err.message)
+    }
   }
 
   return (
@@ -102,6 +106,15 @@ function Login({ history }) {
           ?
         </div>
       </div>
+      <ConfirmEmail
+        email={input.email}
+        isOpen={isOpen}
+        toggle={() => setOpen((prev) => !prev)}
+        onSubmit={() => {
+          setOpen((prev) => !prev)
+          history.push(path.login)
+        }}
+      />
     </div>
   )
 }

@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import Button from 'components/Button'
+import { actions } from 'slices/app.slice'
 import styles from 'theme/pages/dashboard.module.scss'
 import images from 'assets/images'
 
 function Dashboard() {
+  const dispatch = useDispatch()
   return (
     <div className={styles.root}>
       {/* <TopNavigation /> */}
@@ -34,7 +37,7 @@ function Dashboard() {
           {'\n'}
           for more information.
         </p>
-        <div className={styles.buttons}>
+        <div className={styles.buttonContainer}>
           <Button
             label="Download for free"
             className={`btn-purple-fill ${styles.download}`}
@@ -46,7 +49,7 @@ function Dashboard() {
           <Button
             label="Logout"
             className={`btn-purple-outline ${styles.logout}`}
-            // onClick={() => actions.logout()}
+            onClick={() => dispatch(actions.logout())}
           />
         </div>
       </div>

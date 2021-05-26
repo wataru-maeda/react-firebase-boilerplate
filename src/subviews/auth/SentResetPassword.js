@@ -5,7 +5,7 @@ import FontIcon from 'components/FontIcon'
 import Button from 'components/Button'
 import styles from 'theme/subviews/sentResetPassword.module.scss'
 
-const SentResetPassword = ({ email, isOpen, toggle }) => (
+const SentResetPassword = ({ email, isOpen, toggle, onSubmit }) => (
   <Modal isOpen={isOpen} toggle={toggle} size="md" centered>
     <div className={styles.root}>
       <FontIcon name="paper-plane" className={styles.icon} />
@@ -17,7 +17,7 @@ const SentResetPassword = ({ email, isOpen, toggle }) => (
       <Button
         label="Confirm"
         className={`btn-black-fill ${styles.submitButton}`}
-        onClick={toggle}
+        onClick={onSubmit}
       />
     </div>
   </Modal>
@@ -27,14 +27,14 @@ SentResetPassword.propTypes = {
   email: PropTypes.string,
   isOpen: PropTypes.bool,
   toggle: PropTypes.func,
-  // onFinish: PropTypes.func,
+  onSubmit: PropTypes.func,
 }
 
 SentResetPassword.defaultProps = {
   email: '',
   isOpen: false,
   toggle: () => {},
-  // onFinish: () => {},
+  onSubmit: () => {},
 }
 
 export default SentResetPassword

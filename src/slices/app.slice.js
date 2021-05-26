@@ -59,7 +59,7 @@ const signup = ({ fullName, email, password }) => () =>
       // send confirmation email
       await user.sendEmailVerification()
 
-      // store data in firestore
+      // store user info in firestore
       await firestore.collection('users').doc(user.uid).set({
         fullName,
         email,
@@ -73,7 +73,7 @@ const signup = ({ fullName, email, password }) => () =>
     }
   })
 
-const login = (email, password) => (dispatch) =>
+const login = ({ email, password }) => (dispatch) =>
   new Promise(async (resolve, reject) => {
     try {
       const { user } = await auth.signInWithEmailAndPassword(email, password)
@@ -105,12 +105,6 @@ const logout = () => (dispatch) =>
 
 const resetPassword = (email) => () => auth.sendPasswordResetEmail(email)
 
-const setLoginAsync = () => (dispatch) => {
-  setTimeout(() => {
-    dispatch(slice.actions.setLoggedIn(true))
-  }, 1000)
-}
-
 // ------------------------------------
 // Exports
 // ------------------------------------
@@ -122,7 +116,6 @@ export const actions = {
   login,
   logout,
   resetPassword,
-  setLoginAsync,
 }
 
 export default slice.reducer

@@ -37,6 +37,14 @@ body {
   min-height: 100vh;
 }
 
+.app-loader-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-gray;
+}
+
 h1,
 h2,
 h3,

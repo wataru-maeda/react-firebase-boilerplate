@@ -63,8 +63,7 @@ function Signup({ history }) {
     setLoading(true)
 
     try {
-      const user = await dispatch(actions.signup(input))
-      console.log('[##] user', user)
+      await dispatch(actions.signup(input))
       setOpen(true)
       setLoading(false)
       setResError('')
@@ -142,6 +141,10 @@ function Signup({ history }) {
         email={input.email}
         isOpen={isOpen}
         toggle={() => setOpen((prev) => !prev)}
+        onSubmit={() => {
+          setOpen((prev) => !prev)
+          history.push(path.login)
+        }}
       />
     </div>
   )

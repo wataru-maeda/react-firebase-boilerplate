@@ -5,7 +5,7 @@ import FontIcon from 'components/FontIcon'
 import { PropTypes } from 'prop-types'
 import styles from 'theme/subviews/confirmEmail.module.scss'
 
-const ConfirmEmail = ({ email, isOpen, toggle }) => (
+const ConfirmEmail = ({ email, isOpen, toggle, onSubmit }) => (
   <Modal isOpen={isOpen} toggle={toggle} size="md" centered>
     <div className={styles.root}>
       <div className={styles.container}>
@@ -21,7 +21,7 @@ const ConfirmEmail = ({ email, isOpen, toggle }) => (
         <Button
           label="Back to Login"
           className={`btn-pink-fill ${styles.backButton}`}
-          onClick={toggle}
+          onClick={onSubmit}
         />
       </div>
     </div>
@@ -32,12 +32,14 @@ ConfirmEmail.propTypes = {
   email: PropTypes.string,
   isOpen: PropTypes.bool,
   toggle: PropTypes.func,
+  onSubmit: PropTypes.func,
 }
 
 ConfirmEmail.defaultProps = {
   email: '',
   isOpen: false,
   toggle: () => null,
+  onSubmit: () => null,
 }
 
 export default ConfirmEmail
