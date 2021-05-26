@@ -10,53 +10,6 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
-## Libraries
-
-`Database/hosting/authentication`
-
-- [firebase](https://firebase.google.com/)
-
-`Icons`
-
-- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
-
-`Style`
-
-- [bootstrap](https://react-bootstrap.github.io/)
-- [css-module](https://github.com/css-modules/css-modules)
-- [node-sass](https://github.com/sass/node-sass)
-
-`UI Components`
-
-- [reactstrap](https://github.com/reactstrap/reactstrap)
-- [react-select](https://github.com/JedWatson/react-select)
-- [react-spinners](https://github.com/davidhu2000/react-spinners)
-
-`Navigation`
-
-- [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-
-`Store`
-
-- [redux](https://github.com/reduxjs/redux)
-- [redux-logger](https://github.com/LogRocket/redux-logger)
-
-`SEO`
-
-- [react-helmet](https://github.com/nfl/react-helmet)
-
-`Test`
-
-- [jest](https://github.com/facebook/jest)
-- [storybook](https://github.com/storybookjs/storybook)
-
-`Dev`
-
-- [eslint](https://github.com/eslint/eslint)
-- [prettier](https://github.com/prettier/prettier)
-- [jest](https://jestjs.io/)
-- [husky](https://github.com/typicode/husky)
-
 ## How to use
 
 #### Step-1. Setup Firebase App
@@ -105,7 +58,54 @@ $ firebase login
 5. Install packages with command: `yarn install` or `npm install`
 6. Start project with command: `yarn start` or `npm start`
 
-## Scripts
+## Libraries
+
+`Database/hosting/authentication`
+
+- [firebase](https://firebase.google.com/)
+
+`Icons`
+
+- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
+
+`Style`
+
+- [bootstrap](https://react-bootstrap.github.io/)
+- [css-module](https://github.com/css-modules/css-modules)
+- [node-sass](https://github.com/sass/node-sass)
+
+`UI Components`
+
+- [reactstrap](https://github.com/reactstrap/reactstrap)
+- [react-select](https://github.com/JedWatson/react-select)
+- [react-spinners](https://github.com/davidhu2000/react-spinners)
+
+`Navigation`
+
+- [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+
+`Store`
+
+- [redux](https://github.com/reduxjs/redux)
+- [redux-logger](https://github.com/LogRocket/redux-logger)
+
+`SEO`
+
+- [react-helmet](https://github.com/nfl/react-helmet)
+
+`Test`
+
+- [jest](https://github.com/facebook/jest)
+- [storybook](https://github.com/storybookjs/storybook)
+
+`Dev`
+
+- [eslint](https://github.com/eslint/eslint)
+- [prettier](https://github.com/prettier/prettier)
+- [jest](https://jestjs.io/)
+- [husky](https://github.com/typicode/husky)
+
+## Available Scripts
 
 #### Build storybook
 
