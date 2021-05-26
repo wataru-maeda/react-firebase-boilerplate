@@ -61,7 +61,7 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Step-1. Setup Firebase App
 
-1. Create firebase web app from [firebase console](https://console.firebase.google.com/u/0/)
+1. Create firebase web app in [firebase console](https://console.firebase.google.com/u/0/)
 2. Enable **Authentication** and turn on "Email/Password" option
 3. Enable **Storage** and update Rules
 
@@ -74,7 +74,7 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-   		allow read, write : if request.auth.uid == userId;
+      allow read, write : if request.auth.uid == userId;
 		}
   }
 }
