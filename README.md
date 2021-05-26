@@ -4,7 +4,7 @@
 
 - [Live Preview](https://react-firebase-boilerpla-ce757.web.app/)
 
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss1.jpg' width='48%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss2.jpg' width='48%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss3.jpg' width='48%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss4.jpg' width='48%'>
+<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss1.jpg' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss2.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss3.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss4.jpg' width='31%'>
 
 ## About
 
@@ -162,6 +162,10 @@ $ npm build && firebase deploy --only hosting
 - [prettier](https://github.com/prettier/prettier)
 - [jest](https://jestjs.io/)
 - [husky](https://github.com/typicode/husky)
+
+`CI and Auto Deployment`
+
+- [GitHub Action for Firebase](https://github.com/marketplace/actions/github-action-for-firebase)
 
 ## Licence
 
