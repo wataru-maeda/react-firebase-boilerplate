@@ -1,24 +1,21 @@
-import React, { Component } from 'react'
+import { useEffect } from 'react'
 import { Provider } from 'react-redux'
-import store from './utils/store'
-import { loadFontIcons } from './components/FontIcon'
-
+import { loadFontIcons } from 'components/FontIcon'
+import store from 'utils/store'
 import Router from './routes'
-import { authenticate } from './modules/app.module'
 
-class App extends Component {
-  componentDidMount() {
-    store.dispatch(authenticate())
+function App() {
+  useEffect(() => {
     loadFontIcons()
-  }
+  }, [])
 
-  render() {
-    return (
-      <Provider store={store}>
+  return (
+    <Provider store={store}>
+      <div data-testid="app" className="app">
         <Router />
-      </Provider>
-    );
-  }
+      </div>
+    </Provider>
+  )
 }
 
 export default App

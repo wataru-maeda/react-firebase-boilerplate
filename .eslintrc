@@ -1,6 +1,6 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier"],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "jest"],
   "env": {
     "jest": true
   },
@@ -19,7 +19,9 @@
     "react/state-in-constructor": "off",
     "no-async-promise-executor": "off",
     "no-return-assign": "off",
-    "import/prefer-default-export": 0
+    "import/no-named-as-default-member": "off",
+    "import/prefer-default-export": 0,
+    "react/react-in-jsx-scope": "off"
   },
   "globals": {
     "window": true,

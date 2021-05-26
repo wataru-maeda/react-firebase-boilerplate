@@ -1,53 +1,47 @@
-import React, { useEffect } from 'react'
-import Loadable from 'react-loadable'
+import React, { Suspense, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Connector from 'utils/connector'
-import { colors } from 'theme'
+import { actions } from 'slices/app.slice'
+import { path } from 'utils/const'
+import Fallback from 'components/Fallback'
+import Spinner from 'components/Spinner'
 
-const Auth = Loadable({
-  loader: () => import('./scenes/auth'),
-  loading: () => <div />,
-})
+const Auth = React.lazy(() => import('./pages/auth'))
+const Dashboard = React.lazy(() => import('./pages/dashboard'))
 
-const Home = Loadable({
-  loader: () => import('./scenes/home'),
-  loading: () => <div />,
-})
+function Router() {
+  const dispatch = useDispatch()
+  const { checked, loggedIn } = useSelector((state) => state.app)
 
-const Router = ({ checked, loggedIn }) => {
-  // update css variables
   useEffect(() => {
-    Object.keys(colors).forEach(key => {
-      const cssKey = `--${key}`
-      const cssVal = colors[key]
-      document.body.style.setProperty(cssKey, cssVal)
-    })
+    dispatch(actions.authenticate())
   }, [])
 
-  if (!checked) return <aside>Loading...</aside>
+  if (!checked) {
+    return (
+      <div className="app-loader-container">
+        <Spinner size="4rem" color="white" isLoading />
+      </div>
+    )
+  }
+
   return (
     <BrowserRouter>
-      {loggedIn ? (
-        <Switch>
-          <Route path="/" name="Home" component={Home} />
-          <Redirect to="/" />
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path="/" component={Auth} />
-          <Redirect to="/" />
-        </Switch>
-      )}
+      <Suspense fallback={<Fallback />}>
+        {!loggedIn ? (
+          <Switch>
+            <Route path="/" component={Auth} />
+            <Redirect to="/" />
+          </Switch>
+        ) : (
+          <Switch>
+            <Route path={path.dashboard} component={Dashboard} />
+            <Redirect to={path.dashboard} />
+          </Switch>
+        )}
+      </Suspense>
     </BrowserRouter>
   )
 }
 
-export default props => (
-  <Connector>
-    {({
-      state: {
-        app: { loggedIn, checked },
-      },
-    }) => <Router checked={checked} loggedIn={loggedIn} {...props} />}
-  </Connector>
-)
+export default Router

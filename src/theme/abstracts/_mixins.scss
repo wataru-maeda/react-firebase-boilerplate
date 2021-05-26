@@ -1,0 +1,129 @@
+@import './_variables';
+
+/**
+ * ----------------------------------------
+ * Breakpoints
+ * ----------------------------------------
+ */
+
+// ~ 575px
+@mixin phone {
+  @media (max-width: #{$phone-max + 'px'}) {
+    @content;
+  }
+}
+
+// ~ 767px
+@mixin tablet-or-less {
+  @media (max-width: #{$tablet-max + 'px'}) {
+    @content;
+  }
+}
+
+// 576px ~ 767px
+@mixin tablet-only {
+  @media (min-width: #{$tablet-min + 'px'}) and (max-width: #{$tablet-max + 'px'}) {
+    @content;
+  }
+}
+
+// 576px ~
+@mixin tablet-or-more {
+  @media (min-width: #{$tablet-min + 'px'}) {
+    @content;
+  }
+}
+
+// ~ 1339px
+@mixin laptop-or-less {
+  @media (max-width: #{$laptop-max + 'px'}) {
+    @content;
+  }
+}
+
+// 768px ~ 1339px
+@mixin laptop-only {
+  @media (min-width: #{$laptop-min + 'px'}) and (max-width: #{$laptop-max + 'px'}) {
+    @content;
+  }
+}
+
+// 768px ~
+@mixin laptop-or-more {
+  @media (min-width: #{$laptop-min + 'px'}) {
+    @content;
+  }
+}
+
+// 1440px ~
+@mixin desktop-or-more {
+  @media (min-width: '1440px') {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($size) {
+  @media (min-width: $size + 'px') {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: $size + 'px') {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min, $max) {
+  @media (min-width: $min + 'px') and (max-width: $max + 'px') {
+    @content;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * Button
+ * ----------------------------------------
+ */
+
+@mixin button-fill($color) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: $color;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 3px 7px 1px rgba(0, 0, 0, 0.4);
+  border-radius: rem(3);
+  padding: rem(4) rem(16);
+  &:hover {
+    background: lighten($color, 10%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: lighten($color, 10%);
+  }
+}
+
+@mixin button-outline($color) {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $color;
+  background-color: white;
+  color: $color;
+  border-radius: rem(3);
+  padding: rem(4) rem(16);
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  &:hover {
+    color: white;
+    background: lighten($color, 10%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    color: white;
+    background: lighten($color, 10%);
+  }
+}

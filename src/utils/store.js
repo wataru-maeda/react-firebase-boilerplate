@@ -1,36 +1,15 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import app from '../modules/app.module'
+import app from 'slices/app.slice'
 
-const analytics = () => next => action => {
-  window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({
-    event: action.type,
-    payload: action.payload,
-  })
-
-  return next(action)
-}
-
-// Redux store config
-const configureStore = (initialState = {}) => {
-  const reducers = combineReducers({
+const store = configureStore({
+  reducer: {
     app,
-  })
-
-  // Middleware and store enhancers
-  const middlewares = [
-    thunk,
-    process.env.NODE_ENV !== 'production' && logger,
-    analytics,
-  ].filter(Boolean)
-  const enhancer = compose(applyMiddleware(...middlewares))
-  const store = createStore(reducers, initialState, enhancer)
-
-  return store
-}
-
-const store = configureStore()
+  },
+  middleware:
+    process.env.NODE_ENV === 'production'
+      ? [...getDefaultMiddleware()]
+      : [...getDefaultMiddleware(), logger],
+})
 
 export default store

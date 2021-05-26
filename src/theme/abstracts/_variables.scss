@@ -1,0 +1,50 @@
+/**
+ * ----------------------------------------
+ * Colors
+ * ----------------------------------------
+ */
+
+// pink
+$pink: #ff3b86;
+$light-pink: #fcb8d2;
+
+// purple
+$purple: #9d7fe3;
+$light-purple: #c3b6e2;
+
+// gray
+$gray: #cacaca;
+$dark-gray: #333a41;
+$light-gray: #f7f9fc;
+
+// blue
+$light-blue: #d2e2fa;
+
+// gradation
+$gradient-pink-purple: linear-gradient(125.07deg, $pink 0%, $purple 66.18%);
+
+/**
+ * ----------------------------------------
+ * Fonts
+ * ----------------------------------------
+ */
+
+$roboto: 'Roboto';
+$open-san: 'Open Sans';
+
+/**
+ * ----------------------------------------
+ * Breakpoints
+ * ----------------------------------------Â
+ */
+
+$phone-min: 0;
+$phone-max: 575;
+
+$tablet-min: 576;
+$tablet-max: 767;
+
+$laptop-min: 768;
+$laptop-max: 1339;
+
+$desktop-min: 1340;
