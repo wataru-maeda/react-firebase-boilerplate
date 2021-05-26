@@ -10,26 +10,15 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
-## File structure
-
-src
-├── **stories** # UI components for testing and documentation
-├── **tests** # Jest unit tests
-├── assets # images, fonts, icons...
-├── components # UI components
-├── pages # all pages
-│ ├── auth # login, signup, reset password page
-│ ├── dashboard # dashboard page
-│ ├── routes # navigation, tabbar, sidemenu
-├── slices # redux reducer and actions
-├── theme # all scss files includes variables, mixin
-├── utils
-
 ## Libraries
 
 `Database/hosting/authentication`
 
 - [firebase](https://firebase.google.com/)
+
+`Icons`
+
+- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
 
 `Style`
 
@@ -37,28 +26,24 @@ src
 - [css-module](https://github.com/css-modules/css-modules)
 - [node-sass](https://github.com/sass/node-sass)
 
-`Assets`
-
-- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
-
-`SEO`
-
-- [react-helmet](https://github.com/nfl/react-helmet)
-
-`Navigation`
-
-- [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-
 `UI Components`
 
 - [reactstrap](https://github.com/reactstrap/reactstrap)
 - [react-select](https://github.com/JedWatson/react-select)
 - [react-spinners](https://github.com/davidhu2000/react-spinners)
 
+`Navigation`
+
+- [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+
 `Store`
 
 - [redux](https://github.com/reduxjs/redux)
 - [redux-logger](https://github.com/LogRocket/redux-logger)
+
+`SEO`
+
+- [react-helmet](https://github.com/nfl/react-helmet)
 
 `Test`
 
@@ -120,7 +105,7 @@ $ firebase login
 5. Install packages with command: `yarn install` or `npm install`
 6. Start project with command: `yarn start` or `npm start`
 
-## Commands
+## Scripts
 
 #### Build storybook
 
