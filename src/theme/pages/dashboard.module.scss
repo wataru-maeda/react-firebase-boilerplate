@@ -1,0 +1,57 @@
+@import '../core';
+
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-gray;
+  height: '100vh';
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: rem(50);
+}
+
+.title {
+  color: white;
+  font-family: $roboto;
+  margin-top: rem(40);
+  font-size: rem(52);
+  text-align: center;
+}
+
+.description {
+  color: $light-gray;
+  margin-top: rem(24);
+  font-size: rem(16);
+  text-align: center;
+}
+
+.logo {
+  width: rem(160);
+  height: rem(160);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  max-width: rem(400);
+  margin-top: rem(120);
+}
+
+.download {
+  width: 45%;
+  height: rem(50);
+}
+
+.logout {
+  width: 45%;
+  height: rem(50);
+}

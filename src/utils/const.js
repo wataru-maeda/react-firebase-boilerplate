@@ -4,5 +4,5 @@ export const path = {
   profile: '/profile',
   resetPassword: '/reset-password',
   confirmEmail: '/confirm-email',
-  home: '/home',
+  dashboard: '/dashboard',
 }

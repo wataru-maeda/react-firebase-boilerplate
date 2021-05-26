@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import images from 'assets/images'
 import { path } from 'utils/const'
 import styles from 'theme/pages/auth.module.scss'
@@ -26,9 +26,6 @@ function Auth() {
           <Route path={path.login} component={Login} />
           <Route path={path.signup} component={Signup} />
           <Route path={path.resetPassword} component={ResetPassword} />
-          {/* <Route path={path.profile} component={Profile} />
-        <Route path={path.confirmEmail} component={ConfirmEmail} /> */}
-          <Redirect to={path.login} />
         </Switch>
       </div>
     </div>
