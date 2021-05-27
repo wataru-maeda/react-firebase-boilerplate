@@ -1,4 +1,4 @@
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/logo.png' width='40'>
+<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/logo.png' width='80px'>
 
 # React Firebase Boilerplate
 
@@ -37,13 +37,13 @@ service cloud.firestore {
 
 #### Step-2. Install firebase tools
 
-1. Global install firebase tools (Skip if you done the step)
+1. Global install firebase tools (skip if you done the step)
 
 ```
 $  npm install -g firebase-tools
 ```
 
-2. Login to your firebase account (Skip if you done the step)
+2. Login to your firebase account (skip if you done the step)
 
 ```
 $ firebase login
@@ -124,7 +124,7 @@ $ npm build && firebase deploy --only hosting
 
 `Icons`
 
-- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
+- [fontawesome](https://github.com/FortAwesome/react-fontawesome)
 
 `Style`
 
