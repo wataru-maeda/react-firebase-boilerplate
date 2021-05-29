@@ -5,6 +5,7 @@
   "description": "create-react-app based firebase, liter, formatter & test pre-setup project",
   "author": "Wataru Maeda <w.maeda.ca@gmail.com>",
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
@@ -14,6 +15,7 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.6.0",
     "firebase": "^8.6.2",
+    "graphql": "^15.5.0",
     "node-sass": "^5.0.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",

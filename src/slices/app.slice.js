@@ -1,5 +1,7 @@
+import apollo from 'utils/apollo'
+import queries from 'queries'
 import { createSlice } from '@reduxjs/toolkit'
-import { firestore, auth } from 'utils/firebase'
+import { auth } from 'utils/firebase'
 
 // ------------------------------------
 // State
@@ -48,15 +50,17 @@ export const authenticate = () => (dispatch) => {
       )
     }
 
-    // get user from firestore
-    const user = await firestore.collection('users').doc(me?.uid).get()
+    // get user
+    const user = await apollo.query({
+      query: queries.getMe,
+    })
 
     // login
     return dispatch(
       slice.actions.setMe({
         loggedIn: me?.emailVerified && user.exists,
         me: user.exists
-          ? { id: me?.uid, emailVerified: me?.emailVerified, ...user.data() }
+          ? { id: me?.uid, emailVerified: me?.emailVerified, ...user }
           : {},
         checked: true,
       }),
@@ -76,10 +80,10 @@ const signup = ({ fullName, email, password }) => () =>
       // send confirmation email
       await user.sendEmailVerification()
 
-      // store user info in firestore
-      await firestore.collection('users').doc(user.uid).set({
-        fullName,
-        email,
+      // create user
+      await apollo.mutate({
+        mutation: queries.createUser,
+        variables: { input: { name: fullName, email } },
       })
 
       resolve(user)
