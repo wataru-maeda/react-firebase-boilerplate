@@ -1,10 +1,10 @@
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/logo.png' width='80px'>
+<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/__DELELE_ME__/logo.png' width='80px'>
 
 # React Firebase Boilerplate
 
 - [Live Preview](https://react-firebase-boilerpla-ce757.web.app/)
 
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss1.jpg' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss2.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss3.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/__DELELE_ME__/ss4.jpg' width='31%'>
+<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/__DELELE_ME__/ss1.jpg' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/__DELELE_ME__/ss2.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/__DELELE_ME__/ss3.jpg' width='31%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/__DELELE_ME__/ss4.jpg' width='31%'>
 
 ## About
 
@@ -53,8 +53,8 @@ $ firebase login
 
 1. Click "Use Template" to start or download the boilerplate from **Download Zip** button
 2. Open the project in the editor
-3. Go to [firebase console](https://console.firebase.google.com/u/0/) again. Copy all API keys from (gear icon) -> Project Settings. Then paste in [firebase.js](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/src/utils/firebase.js#L9-L15)
-4. Replace project name with yours in [.firebaserc](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/.firebaserc#L3)
+3. Go to [firebase console](https://console.firebase.google.com/u/0/) again. Copy all API keys from (gear icon) -> Project Settings. Then paste in [.env.development](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.env.development#L2-L8)
+4. Replace project name with yours in [.firebaserc](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.firebaserc#L3)
 5. Install packages with command: `yarn install` or `npm install`
 6. Start project with command: `yarn start` or `npm start`
 
@@ -169,4 +169,4 @@ $ npm build && firebase deploy --only hosting
 
 ## Licence
 
-This project is available under the MIT license. See the [LICENSE](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/LICENSE) file for more info.
+This project is available under the MIT license. See the [LICENSE](https://github.com/WataruMaeda/react-native-boilerplate/blob/main/LICENSE) file for more info.
