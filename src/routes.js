@@ -30,12 +30,16 @@ function Router() {
       <Suspense fallback={<Fallback />}>
         {!loggedIn ? (
           <Switch>
-            <Route path="/" component={Auth} />
+            <Route path="/">
+              <Auth />
+            </Route>
             <Redirect to="/" />
           </Switch>
         ) : (
           <Switch>
-            <Route path={path.dashboard} component={Dashboard} />
+            <Route path={path.dashboard}>
+              <Dashboard />
+            </Route>
             <Redirect to={path.dashboard} />
           </Switch>
         )}

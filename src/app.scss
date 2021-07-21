@@ -1,0 +1,117 @@
+@import './theme/core.scss';
+
+/**
+ * ----------------------------------------
+ * Base Styles
+ * ----------------------------------------
+ */
+
+html {
+  font-size: 16px; /* base font size */
+
+  @include phone {
+    font-size: 2.78vw; /* 16px at 576px */
+  }
+
+  @include desktop-or-more {
+    font-size: 1.11vw; /* 16px at 1440px */
+  }
+}
+
+body {
+  font-family: $roboto, $open-san, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-loader-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark-gray;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $roboto, sans-serif;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  appearance: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+p {
+  font-family: $roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-family: $roboto, sans-serif;
+  text-decoration: underline;
+  color: $purple;
+  &:hover {
+    color: $pink;
+    transition: color 0.3s;
+  }
+}
+
+textarea:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+.uneditable-input:focus {
+  border-color: $light-purple;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $light-purple;
+  outline: 0 none;
+}
+
+input::-webkit-input-placeholder {
+  text-overflow: 'ellipsis !important';
+  color: $gray;
+  font-size: 14px;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px $light-blue inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

@@ -1,0 +1,43 @@
+@import '../../../theme/core.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: rem(60);
+  border-radius: rem(8);
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  .submitButton {
+    height: rem(60);
+  }
+  font-size: rem(24);
+  margin-bottom: rem(40);
+}
+
+.submitButton {
+  height: rem(48);
+  margin-bottom: rem(32);
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+}
+
+.linkButton {
+  margin-left: rem(4);
+  text-decoration: underline;
+  color: $purple;
+}

@@ -1,0 +1,25 @@
+@import '../../theme/core.scss';
+
+.modal {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.viewport-lg {
+  position: absolute;
+}
+
+.modal-content {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.4) !important;
+  border-radius: 5px !important;
+  transition: height 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: height 0.3 linear;
+}
+
+.modal-responsive {
+  max-width: rem(600);
+  @include phone {
+    min-width: auto;
+    width: 100%;
+  }
+}

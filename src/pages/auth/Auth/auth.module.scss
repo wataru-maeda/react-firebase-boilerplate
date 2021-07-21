@@ -1,0 +1,98 @@
+@import '../../../theme/core.scss';
+
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background: $gradient-pink-purple;
+  justify-content: center;
+  align-items: center;
+  @include tablet-or-less {
+    flex-direction: column;
+  }
+}
+
+.root:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-left: 60vw solid transparent;
+  border-bottom: 70vh solid white;
+  width: 0;
+}
+
+.leftContainer {
+  flex: 1;
+  flex-direction: column;
+  padding: rem(60);
+  z-index: 2;
+  @include tablet-or-less {
+    width: 100%;
+    padding: rem(32) rem(16);
+  }
+  @include breakpoint-down(1120) {
+    padding: rem(32) rem(16);
+    flex: 3;
+  }
+}
+
+.rightContainer {
+  @extend .leftContainer;
+  @include tablet-or-less {
+    width: 100%;
+    padding: 0 rem(24) rem(24);
+  }
+  @include breakpoint-down(1120) {
+    padding: rem(24);
+    flex: 5;
+  }
+}
+
+.logo {
+  display: block;
+  width: rem(160);
+  margin-bottom: rem(16);
+  margin-left: auto;
+  margin-right: auto;
+  @include tablet-or-less {
+    width: rem(120);
+  }
+}
+
+.header {
+  font-size: rem(40);
+  color: white !important;
+  text-align: center;
+  margin-bottom: rem(60);
+  @include tablet-or-less {
+    font-size: rem(32);
+    margin-bottom: rem(16);
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-style: normal;
+  font-size: rem(24);
+  color: white;
+  text-align: center;
+  margin-bottom: rem(16);
+}
+
+.description {
+  font-size: rem(16);
+  line-height: rem(19);
+  text-align: center;
+  color: white;
+  margin-bottom: rem(48);
+}
+
+.prompt {
+  font-weight: bold;
+  font-size: rem(16);
+  color: white;
+  text-decoration: underline;
+  text-align: center;
+}

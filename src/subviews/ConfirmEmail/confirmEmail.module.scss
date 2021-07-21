@@ -1,0 +1,49 @@
+@import '../../theme/core.scss';
+
+.root {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(40);
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  display: 'flex';
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: rem(400);
+}
+
+.icon {
+  color: $purple;
+  font-size: rem(60);
+}
+
+.title {
+  font-size: rem(24);
+  margin-top: rem(40);
+  text-align: center;
+  color: $purple;
+  text-align: 'center';
+}
+
+.desc {
+  white-space: pre-line;
+  font-size: rem(16);
+  margin-top: rem(20);
+  text-align: center;
+}
+
+.backButton {
+  width: rem(240);
+  height: rem(48);
+  margin-top: rem(60);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}

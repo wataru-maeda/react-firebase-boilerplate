@@ -1,0 +1,86 @@
+@import '../../theme/core.scss';
+
+.select-root {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem(16);
+}
+
+.select-label {
+  font-weight: bold;
+  font-size: rem(14);
+  margin-bottom: rem(4);
+}
+
+.select-control-error {
+  overflow: hidden;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.select-error {
+  margin-top: rem(4);
+  font-size: rem(12);
+  color: red;
+}
+
+/**
+ * ----------------------------------------
+ * React-Select Styles Overrides
+ * ----------------------------------------
+ */
+
+.select__clear-indicator {
+  height: auto;
+}
+
+.select__indicators-container {
+  margin-right: rem(10);
+}
+
+.select__control {
+  padding: 0;
+  &:focus {
+    border: 1px solid $light-purple !important;
+  }
+}
+
+.select__control--is-focused {
+  border: 1px solid $purple !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $light-purple !important;
+}
+
+.select__option {
+  color: $dark-gray;
+  background-color: white;
+  padding: rem(8);
+  font-size: rem(14);
+  &:hover {
+    background-color: $light-purple !important;
+    color: white;
+  }
+}
+
+.select__option--is-focused {
+  background-color: white !important;
+  color: white;
+}
+
+.select__option--is-selected {
+  background-color: $purple !important;
+  color: white;
+}
+
+.select__placeholder {
+  font-size: rem(12);
+  color: $gray !important;
+}
+
+.select__value-container {
+  font-size: rem(14);
+  margin-left: 0;
+}
+
+.select__multi-value {
+  margin-right: rem(8) !important;
+}

@@ -2,10 +2,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from 'components/Button'
 import { actions } from 'slices/app.slice'
-import styles from 'theme/pages/dashboard.module.scss'
 import images from 'assets/images'
+import styles from './dashboard.module.scss'
 
-function Dashboard() {
+const Dashboard = () => {
   const dispatch = useDispatch()
   const { me } = useSelector((state) => state.app)
   return (

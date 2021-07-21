@@ -1,0 +1,20 @@
+@import '../../theme/core.scss';
+
+.input-container {
+  position: relative;
+  margin-bottom: rem(16);
+}
+
+.input-label {
+  font-weight: bold;
+  font-size: rem(14);
+  margin-bottom: rem(4);
+}
+
+.input {
+  font-size: rem(16);
+  &::placeholder {
+    text-overflow: ellipsis !important;
+    font-size: rem(14);
+  }
+}

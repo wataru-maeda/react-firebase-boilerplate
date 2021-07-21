@@ -1,0 +1,20 @@
+@import '../../theme/core.scss';
+
+.error-box-root {
+  display: flex;
+  border-radius: 2px;
+  border: solid 2px red;
+  color: red;
+  background: white;
+  font-size: rem(16);
+  padding: rem(16);
+  margin-bottom: rem(40);
+  width: 100%;
+}
+
+.error-box-icon {
+  width: rem(20);
+  margin-right: rem(10);
+  color: red;
+  font-size: rem(16);
+}
