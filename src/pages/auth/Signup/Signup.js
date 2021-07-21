@@ -1,29 +1,40 @@
 import { useState } from 'react'
-import { PropTypes } from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import Input from 'components/Input'
 import Button from 'components/Button'
 import ErrorBox from 'components/ErrorBox'
 import ConfirmEmail from 'subviews/ConfirmEmail'
 import validate, { tests } from 'utils/validate'
-import styles from 'theme/pages/login.module.scss'
+import { useDispatch } from 'react-redux'
 import { actions } from 'slices/app.slice'
 import { path } from 'utils/const'
+import styles from './signup.module.scss'
 
-function Login({ history }) {
+const customTests = {
+  ...tests,
+  fullName: {
+    test: tests.name.test,
+    error: 'Please input full name',
+  },
+}
+
+const Signup = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
 
   // ------------------------------------
   // State
   // ------------------------------------
   const [input, setInput] = useState({
+    fullName: '',
     email: '',
     password: '',
+    confirmPassword: '',
   })
   const [error, setError] = useState({})
   const [resErr, setResError] = useState('')
-  const [isOpen, setOpen] = useState(false)
   const [isLoading, setLoading] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   // ------------------------------------
   // Handlers
@@ -36,37 +47,51 @@ function Login({ history }) {
 
   const handleSubmit = async () => {
     // validation
-    const result = validate(input, tests)
+    const result = validate(input, customTests)
     setError(result.errors)
     if (result.isError) return
 
-    // login action
+    // confirm password
+    if (input.password !== input.confirmPassword) {
+      setError({
+        password: 'Password do not match',
+        confirmPassword: 'Password do not match',
+      })
+      return
+    }
+
+    // signup action
     setLoading(true)
 
     try {
-      const user = await dispatch(actions.login(input))
-      if (!user.emailVerified) setOpen(true)
+      await dispatch(actions.signup(input))
+      setOpen(true)
       setLoading(false)
       setResError('')
     } catch (err) {
-      setLoading(false)
       setResError(err.message)
+      setLoading(false)
     }
   }
 
   return (
     <div className={styles.root}>
       {resErr && <ErrorBox>{resErr}</ErrorBox>}
-      <h2 className={styles.title}>Login</h2>
+      <h2 className={styles.title}>Signup</h2>
+      <Input
+        label="Full Name"
+        name="fullName"
+        placeholder="John Doe"
+        value={input.fullName}
+        onChange={handleOnChange}
+        error={error.fullName}
+      />
       <Input
         label="Email"
         name="email"
         placeholder="email@example.com"
         value={input.email}
         onChange={handleOnChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleSubmit()
-        }}
         error={error.email}
       />
       <Input
@@ -76,25 +101,31 @@ function Login({ history }) {
         placeholder="password1234"
         value={input.password}
         onChange={handleOnChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleSubmit()
-        }}
         error={error.password}
+      />
+      <Input
+        type="password"
+        label="Confirm Password"
+        name="confirmPassword"
+        placeholder="password1234"
+        value={input.confirmPassword}
+        onChange={handleOnChange}
+        error={error.confirmPassword}
       />
       <br />
       <Button
-        label="Login"
+        label="Signup"
         className={`btn-black-fill ${styles.submitButton}`}
         onClick={handleSubmit}
         isLoading={isLoading}
       />
       <div className={styles.footerContainer}>
         <div className={styles.textContainer}>
-          New user?{' '}
+          You have account?{' '}
           <Button
-            label="Sign up"
+            label="Log in"
             className={styles.linkButton}
-            onClick={() => history.push(path.signup)}
+            onClick={() => history.push(path.login)}
           />
         </div>
         <div className={styles.textContainer}>
@@ -120,15 +151,7 @@ function Login({ history }) {
   )
 }
 
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }),
-}
-Login.defaultProps = {
-  history: {
-    push: () => null,
-  },
-}
+Signup.propTypes = {}
+Signup.defaultProps = {}
 
-export default Login
+export default Signup

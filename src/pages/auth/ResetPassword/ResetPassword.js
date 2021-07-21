@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PropTypes } from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import Input from 'components/Input'
 import Button from 'components/Button'
@@ -7,10 +7,11 @@ import ErrorBox from 'components/ErrorBox'
 import SentResetPassword from 'subviews/SentResetPassword'
 import validate, { tests } from 'utils/validate'
 import { actions } from 'slices/app.slice'
-import styles from 'theme/pages/resetPassword.module.scss'
 import { path } from 'utils/const'
+import styles from './resetPassword.module.scss'
 
-function ResetPassword({ history }) {
+const ResetPassword = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
 
   // ------------------------------------
@@ -95,16 +96,7 @@ function ResetPassword({ history }) {
   )
 }
 
-ResetPassword.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }),
-}
-
-ResetPassword.defaultProps = {
-  history: {
-    push: () => null,
-  },
-}
+ResetPassword.propTypes = {}
+ResetPassword.defaultProps = {}
 
 export default ResetPassword
