@@ -3,7 +3,7 @@ import Modal from 'components/Modal'
 import Button from 'components/Button'
 import FontIcon from 'components/FontIcon'
 import { PropTypes } from 'prop-types'
-import styles from 'theme/subviews/confirmEmail.module.scss'
+import styles from './confirmEmail.module.scss'
 
 const ConfirmEmail = ({ email, isOpen, toggle, onSubmit }) => (
   <Modal isOpen={isOpen} toggle={toggle} size="md" centered>

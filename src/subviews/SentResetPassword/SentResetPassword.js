@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from 'components/Modal'
 import FontIcon from 'components/FontIcon'
 import Button from 'components/Button'
-import styles from 'theme/subviews/sentResetPassword.module.scss'
+import styles from './sentResetPassword.module.scss'
 
 const SentResetPassword = ({ email, isOpen, toggle, onSubmit }) => (
   <Modal isOpen={isOpen} toggle={toggle} size="md" centered>
