@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import 'theme/components/errorBox.scss'
-import FontIcon from './FontIcon'
+import './errorBox.scss'
+import FontIcon from '../FontIcon'
 
 const ErrorBox = ({ children, className, style }) => (
   <div className={`error-box-root ${className}`} style={style}>

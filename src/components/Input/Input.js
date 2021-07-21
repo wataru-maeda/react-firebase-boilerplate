@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'theme/components/input.scss'
+import './input.scss'
 
 const Input = ({
   label,

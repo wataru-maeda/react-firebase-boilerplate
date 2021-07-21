@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import Creatable from 'react-select/creatable'
 import PropTypes from 'prop-types'
-import 'theme/components/select.scss'
+import './select.scss'
 
 const Selector = ({
   name,

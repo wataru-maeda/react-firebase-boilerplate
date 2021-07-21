@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal } from 'reactstrap'
 import PropTypes from 'prop-types'
-import 'theme/components/modal.scss'
+import './modal.scss'
 
 const Popup = ({ isOpen, size, centered, toggle, children }) => (
   <Modal size={size} isOpen={isOpen} centered={centered} toggle={toggle}>

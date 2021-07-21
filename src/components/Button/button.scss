@@ -1,4 +1,4 @@
-@import '../core';
+@import '../../theme/core.scss';
 
 .btn-black-fill {
   @include button-fill($dark-gray);
