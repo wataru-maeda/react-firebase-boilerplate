@@ -12,9 +12,9 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 ## Require Package Version
 
-- Node: v16.13.1
-- Yarn: v1.22.17
-- Npm: v1.22.17
+- Node: v16.x
+- Yarn: v1.22.x
+- Npm: v8.1.x
 
 Yarn preferable. The deploy automation using yarn.
 
