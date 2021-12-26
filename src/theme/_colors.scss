@@ -1,6 +1,6 @@
 /**
  * ----------------------------------------
- * Colors
+ * Variables
  * ----------------------------------------
  */
 
@@ -15,7 +15,7 @@ $light-purple: #c3b6e2;
 // gray
 $gray: #cacaca;
 $dark-gray: #333a41;
-$light-gray: #f7f9fc;
+$light-gray: #1e232b;
 
 // blue
 $light-blue: #d2e2fa;
@@ -25,26 +25,16 @@ $gradient-pink-purple: linear-gradient(125.07deg, $pink 0%, $purple 66.18%);
 
 /**
  * ----------------------------------------
- * Fonts
+ * Exports
  * ----------------------------------------
  */
 
-$roboto: 'Roboto';
-$open-san: 'Open Sans';
-
-/**
- * ----------------------------------------
- * Breakpoints
- * ----------------------------------------Â
- */
-
-$phone-min: 0;
-$phone-max: 575;
-
-$tablet-min: 576;
-$tablet-max: 767;
-
-$laptop-min: 768;
-$laptop-max: 1339;
-
-$desktop-min: 1340;
+:export {
+  pink: $pink;
+  purple: $purple;
+  light-purple: $light-purple;
+  gray: $gray;
+  dark-gray: $dark-gray;
+  light-gray: $light-gray;
+  light-blue: $light-blue;
+}

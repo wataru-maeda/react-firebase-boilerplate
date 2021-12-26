@@ -10,6 +10,14 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
+## Require Package Version
+
+- Node: v16.x
+- Yarn: v1.22.x
+- Npm: v8.1.x
+
+Yarn preferable. The deploy automation using yarn.
+
 ## How to use
 
 #### Step-1. Setup Firebase App
@@ -56,7 +64,7 @@ $ firebase login
 3. Go to [firebase console](https://console.firebase.google.com/u/0/) again. Copy all API keys from (gear icon) -> Project Settings. Then paste in [.env.development](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.env.development#L2-L8)
 4. Replace project name with yours in [.firebaserc](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.firebaserc#L3)
 5. Install packages with command: `yarn install` or `npm install`
-6. Start project with command: `yarn start` or `npm start`
+6. Start project with command: `yarn start` or `npm run start`
 
 ## Available Scripts
 
