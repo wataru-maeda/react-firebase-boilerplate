@@ -64,7 +64,7 @@ $ firebase login
 3. Go to [firebase console](https://console.firebase.google.com/u/0/) again. Copy all API keys from (gear icon) -> Project Settings. Then paste in [.env.development](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.env.development#L2-L8)
 4. Replace project name with yours in [.firebaserc](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/main/.firebaserc#L3)
 5. Install packages with command: `yarn install` or `npm install`
-6. Start project with command: `yarn start` or `npm start`
+6. Start project with command: `yarn start` or `npm run start`
 
 ## Available Scripts
 
