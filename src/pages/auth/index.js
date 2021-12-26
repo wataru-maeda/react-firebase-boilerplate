@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import images from 'assets/images'
+import { images } from 'theme'
 import { path } from 'utils/const'
 import Login from './Login'
 import Signup from './Signup'

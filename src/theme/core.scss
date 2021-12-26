@@ -1,5 +1,7 @@
 @import 'nprogress/nprogress';
 
-@import 'abstracts/_functions';
-@import 'abstracts/_variables';
-@import 'abstracts/_mixins';
+@import '_functions';
+@import '_breakpoints';
+@import '_colors';
+@import '_fonts';
+@import '_button';

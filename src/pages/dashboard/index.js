@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from 'components/Button'
 import { actions } from 'slices/app.slice'
-import images from 'assets/images'
+import { images } from 'theme'
 import styles from './dashboard.module.scss'
 
 const Dashboard = () => {
