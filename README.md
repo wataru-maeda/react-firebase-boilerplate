@@ -10,6 +10,14 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
+## Require Package Version
+
+- Node: v16.13.1
+- Yarn: v1.22.17
+- Npm: v1.22.17
+
+Yarn preferable. The deploy automation using yarn.
+
 ## How to use
 
 #### Step-1. Setup Firebase App
